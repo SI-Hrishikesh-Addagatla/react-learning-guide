@@ -7,10 +7,7 @@ import { useState } from 'react';
 
 const navLinks = [
   { path: '/', label: 'Home' },
-  { path: '/counter', label: 'Counter' },
-  { path: '/todos', label: 'Todos' },
-  { path: '/profile', label: 'Profile' },
-  { path: '/cart', label: 'Shopping Cart' },
+  { path: '/zustand', label: 'Zustand' },
 ];
 
 export const Layout = ({ children }: { children: React.ReactNode }) => {
@@ -24,7 +21,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
         <nav className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <Link to="/" className="text-xl font-bold text-foreground">
-              Zustand Demo
+              React Learning Hub
             </Link>
 
             {/* Desktop Navigation */}
