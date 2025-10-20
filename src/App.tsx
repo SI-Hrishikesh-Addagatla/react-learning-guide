@@ -12,8 +12,14 @@ import Profile from "./pages/zustand/Profile";
 import Cart from "./pages/zustand/Cart";
 import Collaboration from "./pages/zustand/Collaboration";
 import HooksIndex from "./pages/hooks/Index";
-import UseState from "./pages/hooks/UseState";
-import UseEffect from "./pages/hooks/UseEffect";
+import UseStateIndex from "./pages/hooks/use-state/Index";
+import UseStateCounter from "./pages/hooks/use-state/Counter";
+import UseStateForm from "./pages/hooks/use-state/Form";
+import UseStateTodos from "./pages/hooks/use-state/Todos";
+import UseEffectIndex from "./pages/hooks/use-effect/Index";
+import UseEffectDataFetching from "./pages/hooks/use-effect/DataFetching";
+import UseEffectTimer from "./pages/hooks/use-effect/Timer";
+import UseEffectEventListeners from "./pages/hooks/use-effect/EventListeners";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -34,8 +40,14 @@ const App = () => (
             <Route path="/zustand/cart" element={<Cart />} />
             <Route path="/zustand/collaboration" element={<Collaboration />} />
             <Route path="/hooks" element={<HooksIndex />} />
-            <Route path="/hooks/use-state" element={<UseState />} />
-            <Route path="/hooks/use-effect" element={<UseEffect />} />
+            <Route path="/hooks/use-state" element={<UseStateIndex />} />
+            <Route path="/hooks/use-state/counter" element={<UseStateCounter />} />
+            <Route path="/hooks/use-state/form" element={<UseStateForm />} />
+            <Route path="/hooks/use-state/todos" element={<UseStateTodos />} />
+            <Route path="/hooks/use-effect" element={<UseEffectIndex />} />
+            <Route path="/hooks/use-effect/data-fetching" element={<UseEffectDataFetching />} />
+            <Route path="/hooks/use-effect/timer" element={<UseEffectTimer />} />
+            <Route path="/hooks/use-effect/event-listeners" element={<UseEffectEventListeners />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

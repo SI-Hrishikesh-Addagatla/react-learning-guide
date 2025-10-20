@@ -1,11 +1,31 @@
 import { Link } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { DataFetchingExample } from './use-effect/components/DataFetchingExample';
-import { TimerExample } from './use-effect/components/TimerExample';
-import { EventListenerExample } from './use-effect/components/EventListenerExample';
+import { Button } from '@/components/ui/button';
+import { ArrowRight } from 'lucide-react';
 
-const UseEffect = () => {
+const examples = [
+  {
+    path: '/hooks/use-effect/data-fetching',
+    title: 'Data Fetching',
+    description: 'Fetch data from an API when component mounts or dependencies change',
+    difficulty: 'Common Pattern',
+  },
+  {
+    path: '/hooks/use-effect/timer',
+    title: 'Timer with Cleanup',
+    description: 'Using useEffect with cleanup to manage intervals and prevent memory leaks',
+    difficulty: 'Cleanup Pattern',
+  },
+  {
+    path: '/hooks/use-effect/event-listeners',
+    title: 'Event Listeners',
+    description: 'Setting up and cleaning up multiple event listeners in separate effects',
+    difficulty: 'Multiple Effects',
+  },
+];
+
+const UseEffectIndex = () => {
   return (
     <div className="space-y-8">
       <div className="space-y-4">
@@ -83,12 +103,32 @@ const UseEffect = () => {
         </CardContent>
       </Card>
 
-      <div className="space-y-6">
+      <div className="space-y-4">
         <h2 className="text-2xl font-bold">Practical Examples</h2>
         
-        <DataFetchingExample />
-        <TimerExample />
-        <EventListenerExample />
+        <div className="grid md:grid-cols-3 gap-6">
+          {examples.map((example) => (
+            <Link key={example.path} to={example.path}>
+              <Card className="h-full transition-all duration-300 hover:border-primary hover:shadow-lg cursor-pointer group">
+                <CardHeader>
+                  <div className="flex items-center justify-between mb-2">
+                    <Badge variant="outline">{example.difficulty}</Badge>
+                  </div>
+                  <CardTitle className="flex items-center justify-between">
+                    <span className="text-lg">{example.title}</span>
+                    <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  </CardTitle>
+                  <CardDescription>{example.description}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <Button variant="ghost" size="sm" className="w-full group-hover:bg-primary/10">
+                    View Example
+                  </Button>
+                </CardContent>
+              </Card>
+            </Link>
+          ))}
+        </div>
       </div>
 
       <Card>
@@ -132,4 +172,4 @@ const UseEffect = () => {
   );
 };
 
-export default UseEffect;
+export default UseEffectIndex;

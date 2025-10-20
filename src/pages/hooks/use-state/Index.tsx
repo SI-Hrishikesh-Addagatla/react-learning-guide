@@ -1,11 +1,31 @@
 import { Link } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { CounterExample } from './use-state/components/CounterExample';
-import { FormExample } from './use-state/components/FormExample';
-import { TodoExample } from './use-state/components/TodoExample';
+import { Button } from '@/components/ui/button';
+import { ArrowRight } from 'lucide-react';
 
-const UseState = () => {
+const examples = [
+  {
+    path: '/hooks/use-state/counter',
+    title: 'Simple Counter',
+    description: 'Learn basic state management with increment, decrement, and reset operations',
+    difficulty: 'Basic',
+  },
+  {
+    path: '/hooks/use-state/form',
+    title: 'Form State Management',
+    description: 'Managing multiple independent state values for form inputs',
+    difficulty: 'Intermediate',
+  },
+  {
+    path: '/hooks/use-state/todos',
+    title: 'Array State Management',
+    description: 'Managing complex state with arrays - adding and removing items',
+    difficulty: 'Advanced',
+  },
+];
+
+const UseStateIndex = () => {
   return (
     <div className="space-y-8">
       <div className="space-y-4">
@@ -78,12 +98,32 @@ const UseState = () => {
         </CardContent>
       </Card>
 
-      <div className="space-y-6">
+      <div className="space-y-4">
         <h2 className="text-2xl font-bold">Practical Examples</h2>
         
-        <CounterExample />
-        <FormExample />
-        <TodoExample />
+        <div className="grid md:grid-cols-3 gap-6">
+          {examples.map((example) => (
+            <Link key={example.path} to={example.path}>
+              <Card className="h-full transition-all duration-300 hover:border-primary hover:shadow-lg cursor-pointer group">
+                <CardHeader>
+                  <div className="flex items-center justify-between mb-2">
+                    <Badge variant="outline">{example.difficulty}</Badge>
+                  </div>
+                  <CardTitle className="flex items-center justify-between">
+                    <span className="text-lg">{example.title}</span>
+                    <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  </CardTitle>
+                  <CardDescription>{example.description}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <Button variant="ghost" size="sm" className="w-full group-hover:bg-primary/10">
+                    View Example
+                  </Button>
+                </CardContent>
+              </Card>
+            </Link>
+          ))}
+        </div>
       </div>
 
       <Card>
@@ -127,4 +167,4 @@ const UseState = () => {
   );
 };
 
-export default UseState;
+export default UseStateIndex;
