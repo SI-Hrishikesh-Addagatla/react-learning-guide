@@ -8,6 +8,7 @@ import { useState } from 'react';
 const navLinks = [
   { path: '/', label: 'Home' },
   { path: '/zustand', label: 'Zustand' },
+  { path: '/hooks', label: 'Hooks' },
 ];
 
 export const Layout = ({ children }: { children: React.ReactNode }) => {

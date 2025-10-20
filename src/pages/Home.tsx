@@ -13,12 +13,12 @@ const concepts = [
     examples: 5,
   },
   {
-    path: '#',
+    path: '/hooks',
     title: 'React Hooks',
     description: 'Master React hooks with comprehensive demonstrations',
     icon: Code2,
-    status: 'Coming Soon',
-    examples: 0,
+    status: 'Available',
+    examples: 7,
   },
   {
     path: '#',
