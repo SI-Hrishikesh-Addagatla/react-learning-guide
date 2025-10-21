@@ -20,6 +20,17 @@ import UseEffectIndex from "./pages/hooks/use-effect/Index";
 import UseEffectDataFetching from "./pages/hooks/use-effect/DataFetching";
 import UseEffectTimer from "./pages/hooks/use-effect/Timer";
 import UseEffectEventListeners from "./pages/hooks/use-effect/EventListeners";
+import UseRefIndex from "./pages/hooks/use-ref/Index";
+import UseRefInputFocus from "./pages/hooks/use-ref/InputFocus";
+import UseRefVideoPlayer from "./pages/hooks/use-ref/VideoPlayer";
+import UseRefPreviousValue from "./pages/hooks/use-ref/PreviousValue";
+import UseReducerIndex from "./pages/hooks/use-reducer/Index";
+import UseReducerCounter from "./pages/hooks/use-reducer/Counter";
+import UseReducerForm from "./pages/hooks/use-reducer/Form";
+import UseReducerTodoList from "./pages/hooks/use-reducer/TodoList";
+import UseMemoIndex from "./pages/hooks/use-memo/Index";
+import UseCallbackIndex from "./pages/hooks/use-callback/Index";
+import CustomHooksIndex from "./pages/hooks/custom-hooks/Index";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -48,6 +59,17 @@ const App = () => (
             <Route path="/hooks/use-effect/data-fetching" element={<UseEffectDataFetching />} />
             <Route path="/hooks/use-effect/timer" element={<UseEffectTimer />} />
             <Route path="/hooks/use-effect/event-listeners" element={<UseEffectEventListeners />} />
+            <Route path="/hooks/use-ref" element={<UseRefIndex />} />
+            <Route path="/hooks/use-ref/input-focus" element={<UseRefInputFocus />} />
+            <Route path="/hooks/use-ref/video-player" element={<UseRefVideoPlayer />} />
+            <Route path="/hooks/use-ref/previous-value" element={<UseRefPreviousValue />} />
+            <Route path="/hooks/use-reducer" element={<UseReducerIndex />} />
+            <Route path="/hooks/use-reducer/counter" element={<UseReducerCounter />} />
+            <Route path="/hooks/use-reducer/form" element={<UseReducerForm />} />
+            <Route path="/hooks/use-reducer/todo-list" element={<UseReducerTodoList />} />
+            <Route path="/hooks/use-memo" element={<UseMemoIndex />} />
+            <Route path="/hooks/use-callback" element={<UseCallbackIndex />} />
+            <Route path="/hooks/custom-hooks" element={<CustomHooksIndex />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
