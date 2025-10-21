@@ -29,8 +29,17 @@ import UseReducerCounter from "./pages/hooks/use-reducer/Counter";
 import UseReducerForm from "./pages/hooks/use-reducer/Form";
 import UseReducerTodoList from "./pages/hooks/use-reducer/TodoList";
 import UseMemoIndex from "./pages/hooks/use-memo/Index";
+import UseMemoExpensiveCalculation from "./pages/hooks/use-memo/ExpensiveCalculation";
+import UseMemoFilteredList from "./pages/hooks/use-memo/FilteredList";
+import UseMemoComplexObject from "./pages/hooks/use-memo/ComplexObject";
 import UseCallbackIndex from "./pages/hooks/use-callback/Index";
+import UseCallbackParentChild from "./pages/hooks/use-callback/ParentChild";
+import UseCallbackEventHandler from "./pages/hooks/use-callback/EventHandler";
+import UseCallbackFormOptimization from "./pages/hooks/use-callback/FormOptimization";
 import CustomHooksIndex from "./pages/hooks/custom-hooks/Index";
+import CustomHooksLocalStorage from "./pages/hooks/custom-hooks/LocalStorage";
+import CustomHooksFetch from "./pages/hooks/custom-hooks/Fetch";
+import CustomHooksDebounce from "./pages/hooks/custom-hooks/Debounce";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -68,8 +77,17 @@ const App = () => (
             <Route path="/hooks/use-reducer/form" element={<UseReducerForm />} />
             <Route path="/hooks/use-reducer/todo-list" element={<UseReducerTodoList />} />
             <Route path="/hooks/use-memo" element={<UseMemoIndex />} />
+            <Route path="/hooks/use-memo/expensive-calculation" element={<UseMemoExpensiveCalculation />} />
+            <Route path="/hooks/use-memo/filtered-list" element={<UseMemoFilteredList />} />
+            <Route path="/hooks/use-memo/complex-object" element={<UseMemoComplexObject />} />
             <Route path="/hooks/use-callback" element={<UseCallbackIndex />} />
+            <Route path="/hooks/use-callback/parent-child" element={<UseCallbackParentChild />} />
+            <Route path="/hooks/use-callback/event-handler" element={<UseCallbackEventHandler />} />
+            <Route path="/hooks/use-callback/form-optimization" element={<UseCallbackFormOptimization />} />
             <Route path="/hooks/custom-hooks" element={<CustomHooksIndex />} />
+            <Route path="/hooks/custom-hooks/local-storage" element={<CustomHooksLocalStorage />} />
+            <Route path="/hooks/custom-hooks/fetch" element={<CustomHooksFetch />} />
+            <Route path="/hooks/custom-hooks/debounce" element={<CustomHooksDebounce />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
