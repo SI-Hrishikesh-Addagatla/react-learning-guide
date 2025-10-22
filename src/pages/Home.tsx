@@ -1,34 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Store, Code2, BookOpen } from 'lucide-react';
-
-const concepts = [
-  {
-    path: '/zustand',
-    title: 'Zustand State Management',
-    description: 'Learn state management with Zustand through practical examples',
-    icon: Store,
-    status: 'Available',
-    examples: 5,
-  },
-  {
-    path: '/hooks',
-    title: 'React Hooks',
-    description: 'Master React hooks with comprehensive demonstrations',
-    icon: Code2,
-    status: 'Available',
-    examples: 7,
-  },
-  {
-    path: '#',
-    title: 'Context API',
-    description: 'Understand React Context for state management',
-    icon: BookOpen,
-    status: 'Coming Soon',
-    examples: 0,
-  },
-];
+import { Store, Code2, FileCode2, Lightbulb } from 'lucide-react';
 
 const Home = () => {
   return (
@@ -43,49 +16,72 @@ const Home = () => {
         </p>
       </div>
 
-      <div className="grid md:grid-cols-3 gap-6">
-        {concepts.map((concept) => (
-          <Link 
-            key={concept.path} 
-            to={concept.path}
-            className={concept.status === 'Coming Soon' ? 'pointer-events-none' : ''}
-          >
-            <Card className={`h-full transition-all duration-300 ${
-              concept.status === 'Available' 
-                ? 'hover:border-primary hover:shadow-lg cursor-pointer group' 
-                : 'opacity-60'
-            }`}>
-              <CardHeader>
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="p-3 rounded-lg bg-primary/10">
-                    <concept.icon className="h-6 w-6 text-primary" />
-                  </div>
-                  <div className="flex-1">
-                    <CardTitle className="flex items-center justify-between text-lg">
-                      {concept.title}
-                      {concept.status === 'Available' && (
-                        <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                      )}
-                    </CardTitle>
-                  </div>
-                </div>
-                <CardDescription>{concept.description}</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex items-center justify-between">
-                  <span className="text-sm text-muted-foreground">
-                    {concept.examples > 0 ? `${concept.examples} examples` : concept.status}
-                  </span>
-                  {concept.status === 'Available' && (
-                    <Button variant="ghost" size="sm" className="group-hover:bg-primary/10">
-                      Explore
-                    </Button>
-                  )}
-                </div>
-              </CardContent>
-            </Card>
-          </Link>
-        ))}
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <Link to="/zustand">
+          <Card className="h-full transition-all duration-300 hover:border-primary hover:shadow-lg cursor-pointer group">
+            <CardHeader>
+              <div className="p-3 rounded-lg bg-primary/10 w-fit mb-3">
+                <Store className="h-6 w-6 text-primary" />
+              </div>
+              <CardTitle className="text-lg">Zustand</CardTitle>
+              <CardDescription>State Management Examples</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <Button variant="ghost" size="sm" className="w-full group-hover:bg-primary/10">
+                Explore →
+              </Button>
+            </CardContent>
+          </Card>
+        </Link>
+
+        <Link to="/hooks">
+          <Card className="h-full transition-all duration-300 hover:border-primary hover:shadow-lg cursor-pointer group">
+            <CardHeader>
+              <div className="p-3 rounded-lg bg-primary/10 w-fit mb-3">
+                <Code2 className="h-6 w-6 text-primary" />
+              </div>
+              <CardTitle className="text-lg">React Hooks</CardTitle>
+              <CardDescription>Comprehensive Hook Examples</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <Button variant="ghost" size="sm" className="w-full group-hover:bg-primary/10">
+                Explore →
+              </Button>
+            </CardContent>
+          </Card>
+        </Link>
+
+        <Link to="/all-components">
+          <Card className="h-full transition-all duration-300 hover:border-primary hover:shadow-lg cursor-pointer group">
+            <CardHeader>
+              <div className="p-3 rounded-lg bg-primary/10 w-fit mb-3">
+                <FileCode2 className="h-6 w-6 text-primary" />
+              </div>
+              <CardTitle className="text-lg">Components</CardTitle>
+              <CardDescription>UI Component Reference</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <Button variant="ghost" size="sm" className="w-full group-hover:bg-primary/10">
+                View All →
+              </Button>
+            </CardContent>
+          </Card>
+        </Link>
+
+        <Card className="h-full bg-muted/50 border-dashed">
+          <CardHeader>
+            <div className="p-3 rounded-lg bg-primary/10 w-fit mb-3">
+              <Lightbulb className="h-6 w-6 text-primary" />
+            </div>
+            <CardTitle className="text-lg">Practice</CardTitle>
+            <CardDescription>Coming Soon</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-muted-foreground">
+              Code challenges and exercises
+            </p>
+          </CardContent>
+        </Card>
       </div>
 
       <Card className="bg-muted/50">

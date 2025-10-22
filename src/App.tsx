@@ -44,6 +44,7 @@ import UseImperativeHandleIndex from "./pages/hooks/use-imperative-handle/Index"
 import UseImperativeHandleInputFocus from "./pages/hooks/use-imperative-handle/InputFocusControl";
 import UseImperativeHandleFormControl from "./pages/hooks/use-imperative-handle/FormControl";
 import UseImperativeHandleModalControl from "./pages/hooks/use-imperative-handle/ModalControl";
+import AllComponents from "./pages/AllComponents";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -57,6 +58,7 @@ const App = () => (
         <Layout>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/all-components" element={<AllComponents />} />
             <Route path="/zustand" element={<ZustandIndex />} />
             <Route path="/zustand/counter" element={<Counter />} />
             <Route path="/zustand/todos" element={<Todos />} />
