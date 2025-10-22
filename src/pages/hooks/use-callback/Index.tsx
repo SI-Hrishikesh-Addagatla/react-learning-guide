@@ -1,25 +1,25 @@
 import { Link } from 'react-router-dom';
 import { Card } from '@/components/ui/card';
-import { Component, MousePointer, RefreshCw } from 'lucide-react';
+import { Component, MousePointer, FileText } from 'lucide-react';
 
 const examples = [
   {
-    path: '/hooks/use-callback/child-optimization',
-    title: 'Child Optimization',
-    description: 'Preventing unnecessary child re-renders',
+    path: '/hooks/use-callback/parent-child',
+    title: 'Parent-Child Optimization',
+    description: 'Preventing unnecessary child component re-renders',
     icon: Component,
   },
   {
-    path: '/hooks/use-callback/event-handlers',
-    title: 'Event Handlers',
-    description: 'Memoizing event handler functions',
+    path: '/hooks/use-callback/event-handler',
+    title: 'Event Handler Stability',
+    description: 'Stabilize event listeners in useEffect dependencies',
     icon: MousePointer,
   },
   {
-    path: '/hooks/use-callback/dependency-optimization',
-    title: 'Dependency Optimization',
-    description: 'Managing useEffect dependencies efficiently',
-    icon: RefreshCw,
+    path: '/hooks/use-callback/form-optimization',
+    title: 'Form Optimization',
+    description: 'Optimize large forms with memoized callbacks',
+    icon: FileText,
   },
 ];
 
@@ -102,9 +102,9 @@ const UseCallbackIndex = () => {
       <Card className="p-6 bg-muted/50">
         <h3 className="text-xl font-semibold mb-4">Learning Path</h3>
         <ol className="space-y-2 list-decimal list-inside text-muted-foreground">
-          <li>Start with <strong className="text-foreground">Child Optimization</strong> - Understand the basics</li>
-          <li>Move to <strong className="text-foreground">Event Handlers</strong> - Real-world usage</li>
-          <li>Finish with <strong className="text-foreground">Dependency Optimization</strong> - Advanced patterns</li>
+          <li>Start with <strong className="text-foreground">Parent-Child Optimization</strong> - Understand the basics</li>
+          <li>Move to <strong className="text-foreground">Event Handler Stability</strong> - Real-world usage</li>
+          <li>Finish with <strong className="text-foreground">Form Optimization</strong> - Advanced patterns</li>
         </ol>
       </Card>
     </div>
