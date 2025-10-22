@@ -40,6 +40,10 @@ import CustomHooksIndex from "./pages/hooks/custom-hooks/Index";
 import CustomHooksLocalStorage from "./pages/hooks/custom-hooks/LocalStorage";
 import CustomHooksFetch from "./pages/hooks/custom-hooks/Fetch";
 import CustomHooksDebounce from "./pages/hooks/custom-hooks/Debounce";
+import UseImperativeHandleIndex from "./pages/hooks/use-imperative-handle/Index";
+import UseImperativeHandleInputFocus from "./pages/hooks/use-imperative-handle/InputFocusControl";
+import UseImperativeHandleFormControl from "./pages/hooks/use-imperative-handle/FormControl";
+import UseImperativeHandleModalControl from "./pages/hooks/use-imperative-handle/ModalControl";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -88,6 +92,10 @@ const App = () => (
             <Route path="/hooks/custom-hooks/local-storage" element={<CustomHooksLocalStorage />} />
             <Route path="/hooks/custom-hooks/fetch" element={<CustomHooksFetch />} />
             <Route path="/hooks/custom-hooks/debounce" element={<CustomHooksDebounce />} />
+            <Route path="/hooks/use-imperative-handle" element={<UseImperativeHandleIndex />} />
+            <Route path="/hooks/use-imperative-handle/input-focus" element={<UseImperativeHandleInputFocus />} />
+            <Route path="/hooks/use-imperative-handle/form-control" element={<UseImperativeHandleFormControl />} />
+            <Route path="/hooks/use-imperative-handle/modal-control" element={<UseImperativeHandleModalControl />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

@@ -41,11 +41,20 @@ const hooks = [
     useCases: ['DOM access', 'Previous values', 'Uncontrolled components'],
   },
   {
+    path: '/hooks/use-reducer',
+    title: 'useReducer',
+    description: 'Manage complex state logic with reducer pattern',
+    icon: RefreshCw,
+    examples: 3,
+    difficulty: 'Intermediate',
+    useCases: ['Complex state', 'Multiple actions', 'Predictable updates'],
+  },
+  {
     path: '/hooks/use-memo',
     title: 'useMemo',
     description: 'Optimize performance by memoizing expensive computations',
     icon: Zap,
-    examples: 2,
+    examples: 3,
     difficulty: 'Intermediate',
     useCases: ['Expensive calculations', 'Filtering large lists', 'Complex derivations'],
   },
@@ -54,7 +63,7 @@ const hooks = [
     title: 'useCallback',
     description: 'Prevent unnecessary re-renders by memoizing callback functions',
     icon: Repeat,
-    examples: 2,
+    examples: 3,
     difficulty: 'Intermediate',
     useCases: ['Event handlers', 'Child component props', 'Dependency optimization'],
   },
@@ -63,7 +72,7 @@ const hooks = [
     title: 'useImperativeHandle',
     description: 'Customize the instance value exposed to parent components with refs',
     icon: Wrench,
-    examples: 2,
+    examples: 3,
     difficulty: 'Advanced',
     useCases: ['Custom components', 'Controlled APIs', 'Imperative actions'],
   },
@@ -197,19 +206,26 @@ const HooksIndex = () => {
             <li className="flex gap-3">
               <span className="font-bold text-primary">3.</span>
               <div>
+                <strong>Understand useReducer for complex state</strong>
+                <p className="text-sm text-muted-foreground">Manage state with reducer pattern</p>
+              </div>
+            </li>
+            <li className="flex gap-3">
+              <span className="font-bold text-primary">4.</span>
+              <div>
                 <strong>Master useMemo and useCallback</strong>
                 <p className="text-sm text-muted-foreground">Optimize performance when needed</p>
               </div>
             </li>
             <li className="flex gap-3">
-              <span className="font-bold text-primary">4.</span>
+              <span className="font-bold text-primary">5.</span>
               <div>
                 <strong>Explore useImperativeHandle</strong>
                 <p className="text-sm text-muted-foreground">Advanced patterns for component APIs</p>
               </div>
             </li>
             <li className="flex gap-3">
-              <span className="font-bold text-primary">5.</span>
+              <span className="font-bold text-primary">6.</span>
               <div>
                 <strong>Create Custom Hooks</strong>
                 <p className="text-sm text-muted-foreground">Build reusable logic for your applications</p>
