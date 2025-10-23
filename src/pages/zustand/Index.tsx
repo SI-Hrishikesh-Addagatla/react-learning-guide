@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 import { ArrowRight, Package, ListTodo, User, ShoppingCart, Users } from 'lucide-react';
 
 const examples = [
@@ -49,6 +50,14 @@ const ZustandIndex = () => {
           A comprehensive demonstration of Zustand features through practical examples.
           Each example showcases different aspects of state management.
         </p>
+      </div>
+
+      <div className="flex justify-end mb-6">
+        <Link to="/zustand/practice">
+          <Button size="lg" variant="default">
+            Practice Sessions
+          </Button>
+        </Link>
       </div>
 
       <div className="grid md:grid-cols-2 gap-6">

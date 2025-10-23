@@ -11,6 +11,10 @@ import Todos from "./pages/zustand/Todos";
 import Profile from "./pages/zustand/Profile";
 import Cart from "./pages/zustand/Cart";
 import Collaboration from "./pages/zustand/Collaboration";
+import ZustandPractice from "./pages/zustand/practice/Index";
+import ZustandFillInCounter from "./pages/zustand/practice/FillInCounter";
+import ZustandBuildBookmark from "./pages/zustand/practice/BuildBookmark";
+import ZustandBuildNotification from "./pages/zustand/practice/BuildNotification";
 import HooksIndex from "./pages/hooks/Index";
 import UseStateIndex from "./pages/hooks/use-state/Index";
 import UseStateCounter from "./pages/hooks/use-state/Counter";
@@ -65,6 +69,10 @@ const App = () => (
             <Route path="/zustand/profile" element={<Profile />} />
             <Route path="/zustand/cart" element={<Cart />} />
             <Route path="/zustand/collaboration" element={<Collaboration />} />
+            <Route path="/zustand/practice" element={<ZustandPractice />} />
+            <Route path="/zustand/practice/fill-in-counter" element={<ZustandFillInCounter />} />
+            <Route path="/zustand/practice/build-bookmark" element={<ZustandBuildBookmark />} />
+            <Route path="/zustand/practice/build-notification" element={<ZustandBuildNotification />} />
             <Route path="/hooks" element={<HooksIndex />} />
             <Route path="/hooks/use-state" element={<UseStateIndex />} />
             <Route path="/hooks/use-state/counter" element={<UseStateCounter />} />
