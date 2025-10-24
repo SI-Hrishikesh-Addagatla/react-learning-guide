@@ -94,59 +94,96 @@ interface BookmarkState {
                 <div className="space-y-4">
                   {/* Header */}
                   <div className="border-b pb-3">
-                    <div className="h-8 bg-primary/20 rounded w-48 mb-2"></div>
-                    <div className="h-4 bg-muted rounded w-64"></div>
+                    <div className="flex items-center justify-center h-8 bg-primary/20 rounded w-full mb-2">
+                      <span className="text-sm font-bold">📚 My Bookmarks</span>
+                    </div>
+                    <div className="flex items-center justify-center h-4 bg-muted rounded w-full text-xs">
+                      Save and organize your favorite websites
+                    </div>
                   </div>
 
-                  {/* Filters */}
-                  <div className="flex gap-2 flex-wrap">
-                    <div className="h-8 bg-primary/30 rounded w-20"></div>
-                    <div className="h-8 bg-muted rounded w-24"></div>
-                    <div className="h-8 bg-muted rounded w-28"></div>
-                    <div className="h-8 bg-muted rounded w-20"></div>
+                  {/* Category Filters */}
+                  <div>
+                    <div className="text-xs font-semibold mb-2 text-muted-foreground">Filter by Category:</div>
+                    <div className="flex gap-2 flex-wrap">
+                      <div className="h-8 bg-primary/30 rounded px-3 flex items-center text-xs font-medium">All</div>
+                      <div className="h-8 bg-muted rounded px-3 flex items-center text-xs">Work</div>
+                      <div className="h-8 bg-muted rounded px-3 flex items-center text-xs">Personal</div>
+                      <div className="h-8 bg-muted rounded px-3 flex items-center text-xs">Learning</div>
+                    </div>
                   </div>
 
-                  {/* Search & Add */}
-                  <div className="flex gap-2">
-                    <div className="h-10 bg-background rounded flex-1"></div>
-                    <div className="h-10 bg-primary/40 rounded w-32"></div>
+                  {/* Search & Add Button */}
+                  <div>
+                    <div className="text-xs font-semibold mb-2 text-muted-foreground">Search & Add:</div>
+                    <div className="flex gap-2">
+                      <div className="h-10 bg-background border rounded flex-1 flex items-center px-3 text-xs text-muted-foreground">
+                        🔍 Search bookmarks...
+                      </div>
+                      <div className="h-10 bg-primary/40 rounded px-4 flex items-center text-xs font-medium">
+                        + Add Bookmark
+                      </div>
+                    </div>
                   </div>
 
                   {/* Bookmark Cards Grid */}
-                  <div className="grid gap-3 sm:grid-cols-2">
-                    {[1, 2, 3, 4].map((i) => (
-                      <div key={i} className="border rounded-lg p-3 bg-background">
-                        <div className="flex justify-between items-start mb-2">
-                          <div className="h-5 bg-foreground/80 rounded w-32"></div>
-                          <div className="h-5 w-5 bg-muted rounded"></div>
+                  <div>
+                    <div className="text-xs font-semibold mb-2 text-muted-foreground">Bookmark Cards (2-column grid):</div>
+                    <div className="grid gap-3 sm:grid-cols-2">
+                      {[1, 2].map((i) => (
+                        <div key={i} className="border rounded-lg p-3 bg-background">
+                          <div className="flex justify-between items-start mb-2">
+                            <div className="flex items-center gap-2">
+                              <span className="text-xs">⭐</span>
+                              <div className="text-xs font-semibold">React Documentation</div>
+                            </div>
+                            <div className="flex gap-1">
+                              <div className="h-5 w-5 bg-muted rounded flex items-center justify-center text-[10px]">✏️</div>
+                              <div className="h-5 w-5 bg-muted rounded flex items-center justify-center text-[10px]">🗑️</div>
+                            </div>
+                          </div>
+                          <div className="text-[10px] text-primary mb-1">https://react.dev</div>
+                          <div className="text-[10px] text-muted-foreground mb-2">
+                            Official React documentation and tutorials
+                          </div>
+                          <div className="flex gap-2 items-center">
+                            <div className="h-5 bg-secondary/30 rounded px-2 flex items-center text-[10px]">
+                              Learning
+                            </div>
+                            <div className="text-[10px] text-muted-foreground">2 days ago</div>
+                          </div>
                         </div>
-                        <div className="h-3 bg-muted rounded w-full mb-2"></div>
-                        <div className="h-3 bg-muted rounded w-3/4 mb-3"></div>
-                        <div className="flex gap-2">
-                          <div className="h-6 bg-secondary/30 rounded w-16 text-xs"></div>
-                          <div className="h-6 bg-muted rounded w-12"></div>
-                        </div>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
                   </div>
 
-                  {/* Stats */}
-                  <div className="border-t pt-3 flex justify-between text-sm">
-                    <div className="h-4 bg-muted rounded w-32"></div>
-                    <div className="h-4 bg-muted rounded w-24"></div>
+                  {/* Stats Footer */}
+                  <div className="border-t pt-3 flex justify-between text-xs">
+                    <div className="text-muted-foreground">Total: 12 bookmarks</div>
+                    <div className="text-muted-foreground">⭐ 5 favorites</div>
                   </div>
                 </div>
               </div>
 
               <div className="mt-4 text-sm space-y-2">
-                <h4 className="font-semibold">Component Breakdown:</h4>
+                <h4 className="font-semibold">Detailed Component Breakdown:</h4>
                 <ul className="list-disc ml-5 space-y-1 text-muted-foreground">
-                  <li>Header with title and description</li>
-                  <li>Category filter tabs</li>
-                  <li>Search bar and "Add Bookmark" button</li>
-                  <li>Bookmark cards in a responsive grid</li>
-                  <li>Each card shows title, URL, description, category, and actions</li>
-                  <li>Footer with statistics</li>
+                  <li><strong>Header:</strong> Title "My Bookmarks" and subtitle description</li>
+                  <li><strong>Category Filter Tabs:</strong> Buttons for "All", "Work", "Personal", "Learning" (highlight active)</li>
+                  <li><strong>Search Input:</strong> Full-width input with search icon to filter by title/URL</li>
+                  <li><strong>Add Button:</strong> "Add Bookmark" button next to search (opens dialog/form)</li>
+                  <li><strong>Bookmark Cards:</strong> 2-column responsive grid showing:
+                    <ul className="list-circle ml-5 mt-1">
+                      <li>Star icon (filled if favorite, empty if not)</li>
+                      <li>Title (clickable to open URL)</li>
+                      <li>URL (displayed in smaller text)</li>
+                      <li>Description (2 lines max)</li>
+                      <li>Category badge</li>
+                      <li>Created date</li>
+                      <li>Edit and Delete icon buttons</li>
+                    </ul>
+                  </li>
+                  <li><strong>Footer Stats:</strong> Total bookmark count and favorite count</li>
                 </ul>
               </div>
             </CardContent>

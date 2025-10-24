@@ -96,64 +96,111 @@ interface NotificationState {
                   {/* Header */}
                   <div className="border-b pb-3">
                     <div className="flex items-center justify-between">
-                      <div className="h-8 bg-primary/20 rounded w-48"></div>
-                      <div className="h-6 w-12 bg-destructive/30 rounded-full"></div>
+                      <div className="flex items-center justify-center h-8 bg-primary/20 rounded w-48 text-sm font-bold">
+                        🔔 Notifications
+                      </div>
+                      <div className="h-6 w-12 bg-destructive/30 rounded-full flex items-center justify-center text-xs font-bold">
+                        5
+                      </div>
                     </div>
-                    <div className="h-4 bg-muted rounded w-64 mt-2"></div>
+                    <div className="flex items-center justify-center h-4 bg-muted rounded w-full mt-2 text-xs">
+                      Manage your notifications
+                    </div>
                   </div>
 
-                  {/* Action Buttons */}
-                  <div className="grid grid-cols-2 gap-2">
-                    <div className="h-9 bg-green-500/20 rounded"></div>
-                    <div className="h-9 bg-red-500/20 rounded"></div>
-                    <div className="h-9 bg-yellow-500/20 rounded"></div>
-                    <div className="h-9 bg-blue-500/20 rounded"></div>
+                  {/* Test Action Buttons */}
+                  <div>
+                    <div className="text-xs font-semibold mb-2 text-muted-foreground">Test Notification Triggers:</div>
+                    <div className="grid grid-cols-2 gap-2">
+                      <div className="h-9 bg-green-500/20 rounded flex items-center justify-center text-xs font-medium">
+                        ✓ Trigger Success
+                      </div>
+                      <div className="h-9 bg-red-500/20 rounded flex items-center justify-center text-xs font-medium">
+                        ✗ Trigger Error
+                      </div>
+                      <div className="h-9 bg-yellow-500/20 rounded flex items-center justify-center text-xs font-medium">
+                        ⚠ Trigger Warning
+                      </div>
+                      <div className="h-9 bg-blue-500/20 rounded flex items-center justify-center text-xs font-medium">
+                        ℹ Trigger Info
+                      </div>
+                    </div>
                   </div>
 
                   {/* Filter Tabs */}
-                  <div className="flex gap-2">
-                    <div className="h-8 bg-primary/30 rounded w-16"></div>
-                    <div className="h-8 bg-muted rounded w-20"></div>
-                    <div className="h-8 bg-muted rounded w-20"></div>
+                  <div>
+                    <div className="text-xs font-semibold mb-2 text-muted-foreground">Filter:</div>
+                    <div className="flex gap-2">
+                      <div className="h-8 bg-primary/30 rounded px-3 flex items-center text-xs font-medium">All</div>
+                      <div className="h-8 bg-muted rounded px-3 flex items-center text-xs">Unread</div>
+                      <div className="h-8 bg-muted rounded px-3 flex items-center text-xs">Read</div>
+                    </div>
                   </div>
 
                   {/* Notification List */}
-                  <div className="space-y-2">
-                    {[1, 2, 3].map((i) => (
-                      <div key={i} className="border rounded-lg p-3 bg-background">
-                        <div className="flex items-start justify-between mb-2">
-                          <div className="flex items-center gap-2">
-                            <div className="h-4 w-4 bg-green-500/40 rounded-full"></div>
-                            <div className="h-4 bg-foreground/80 rounded w-32"></div>
+                  <div>
+                    <div className="text-xs font-semibold mb-2 text-muted-foreground">Notification Cards:</div>
+                    <div className="space-y-2">
+                      {[
+                        { icon: '✓', color: 'green', title: 'Success', message: 'Your profile was updated successfully' },
+                        { icon: '✗', color: 'red', title: 'Error', message: 'Failed to save changes. Please try again' },
+                        { icon: '⚠', color: 'yellow', title: 'Warning', message: 'Your session will expire in 5 minutes' },
+                      ].map((notif, i) => (
+                        <div key={i} className="border rounded-lg p-3 bg-background">
+                          <div className="flex items-start justify-between mb-2">
+                            <div className="flex items-center gap-2">
+                              <div className={`h-4 w-4 bg-${notif.color}-500/40 rounded-full flex items-center justify-center text-[8px]`}>
+                                {notif.icon}
+                              </div>
+                              <div className="text-xs font-semibold">{notif.title}</div>
+                              <div className="h-2 w-2 bg-primary rounded-full" title="Unread indicator"></div>
+                            </div>
+                            <div className="flex gap-1">
+                              <div className="h-6 w-6 bg-muted rounded flex items-center justify-center text-[10px]" title="Mark as read">
+                                ✓
+                              </div>
+                              <div className="h-6 w-6 bg-muted rounded flex items-center justify-center text-[10px]" title="Dismiss">
+                                ✕
+                              </div>
+                            </div>
                           </div>
-                          <div className="flex gap-1">
-                            <div className="h-6 w-6 bg-muted rounded"></div>
-                            <div className="h-6 w-6 bg-muted rounded"></div>
+                          <div className="text-[10px] text-muted-foreground mb-1">
+                            {notif.message}
                           </div>
+                          <div className="text-[10px] text-muted-foreground/60">2 minutes ago</div>
                         </div>
-                        <div className="h-3 bg-muted rounded w-full mb-1"></div>
-                        <div className="h-3 bg-muted rounded w-4/5"></div>
-                        <div className="h-3 bg-muted/50 rounded w-24 mt-2"></div>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
                   </div>
 
                   {/* Footer Actions */}
                   <div className="border-t pt-3">
-                    <div className="h-8 bg-destructive/20 rounded w-full"></div>
+                    <div className="h-8 bg-destructive/20 rounded w-full flex items-center justify-center text-xs font-medium">
+                      Clear All Notifications
+                    </div>
                   </div>
                 </div>
               </div>
 
               <div className="mt-4 text-sm space-y-2">
-                <h4 className="font-semibold">Component Breakdown:</h4>
+                <h4 className="font-semibold">Detailed Component Breakdown:</h4>
                 <ul className="list-disc ml-5 space-y-1 text-muted-foreground">
-                  <li>Header with title and unread badge</li>
-                  <li>Test buttons to trigger different notification types</li>
-                  <li>Filter tabs (All, Read, Unread)</li>
-                  <li>Notification list with cards</li>
-                  <li>Each card shows icon, title, message, timestamp, and actions</li>
-                  <li>"Clear All" button at the bottom</li>
+                  <li><strong>Header:</strong> "Notifications" title with unread count badge (red circle)</li>
+                  <li><strong>Test Buttons:</strong> 4 buttons to trigger sample notifications (Success, Error, Warning, Info)</li>
+                  <li><strong>Filter Tabs:</strong> "All", "Unread", "Read" buttons (highlight active)</li>
+                  <li><strong>Notification Cards:</strong> Vertically stacked list showing:
+                    <ul className="list-circle ml-5 mt-1">
+                      <li>Type icon (✓ success, ✗ error, ⚠ warning, ℹ info) with colored background</li>
+                      <li>Title (Success/Error/Warning/Info)</li>
+                      <li>Blue dot indicator for unread (hide for read)</li>
+                      <li>Message text (2 lines)</li>
+                      <li>Timestamp ("2 minutes ago")</li>
+                      <li>Mark as read button (checkmark icon)</li>
+                      <li>Dismiss button (X icon)</li>
+                    </ul>
+                  </li>
+                  <li><strong>Auto-dismiss:</strong> Notifications should auto-dismiss after 5 seconds (use setTimeout)</li>
+                  <li><strong>Clear All Button:</strong> Removes all notifications at once</li>
                 </ul>
               </div>
             </CardContent>
