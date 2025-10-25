@@ -32,7 +32,7 @@ const CustomModal = forwardRef<ModalHandle, { title: string; children: React.Rea
             <h3 className="text-xl font-semibold">{title}</h3>
             <Button
               variant="ghost"
-              size="icon"
+              size="icon_sm"
               onClick={() => setIsOpen(false)}
             >
               <X className="h-4 w-4" />

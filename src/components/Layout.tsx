@@ -42,7 +42,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
               ))}
               <Button
                 variant="ghost"
-                size="icon"
+                size="icon_sm"
                 onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
               >
                 <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
@@ -54,7 +54,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
             <div className="flex md:hidden items-center gap-2">
               <Button
                 variant="ghost"
-                size="icon"
+                size="icon_sm"
                 onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
               >
                 <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
@@ -62,7 +62,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
               </Button>
               <Button
                 variant="ghost"
-                size="icon"
+                size="icon_sm"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               >
                 {mobileMenuOpen ? (

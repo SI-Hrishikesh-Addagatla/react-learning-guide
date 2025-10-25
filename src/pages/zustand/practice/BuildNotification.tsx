@@ -110,20 +110,23 @@ interface NotificationState {
 
                   {/* Test Action Buttons */}
                   <div>
-                    <div className="text-xs font-semibold mb-2 text-muted-foreground">Test Notification Triggers:</div>
+                    <div className="text-xs font-semibold mb-2 text-muted-foreground">Test Notification Triggers (Click to Add Sample Notification):</div>
                     <div className="grid grid-cols-2 gap-2">
-                      <div className="h-9 bg-green-500/20 rounded flex items-center justify-center text-xs font-medium">
-                        ✓ Trigger Success
+                      <div className="h-9 bg-green-500/20 rounded flex items-center justify-center text-xs font-medium border border-green-500/30">
+                        ✓ Success Button
                       </div>
-                      <div className="h-9 bg-red-500/20 rounded flex items-center justify-center text-xs font-medium">
-                        ✗ Trigger Error
+                      <div className="h-9 bg-red-500/20 rounded flex items-center justify-center text-xs font-medium border border-red-500/30">
+                        ✗ Error Button
                       </div>
-                      <div className="h-9 bg-yellow-500/20 rounded flex items-center justify-center text-xs font-medium">
-                        ⚠ Trigger Warning
+                      <div className="h-9 bg-yellow-500/20 rounded flex items-center justify-center text-xs font-medium border border-yellow-500/30">
+                        ⚠ Warning Button
                       </div>
-                      <div className="h-9 bg-blue-500/20 rounded flex items-center justify-center text-xs font-medium">
-                        ℹ Trigger Info
+                      <div className="h-9 bg-blue-500/20 rounded flex items-center justify-center text-xs font-medium border border-blue-500/30">
+                        ℹ Info Button
                       </div>
+                    </div>
+                    <div className="text-[10px] text-muted-foreground mt-2 italic">
+                      When clicked, these buttons call addNotification() with sample data
                     </div>
                   </div>
 
@@ -139,35 +142,45 @@ interface NotificationState {
 
                   {/* Notification List */}
                   <div>
-                    <div className="text-xs font-semibold mb-2 text-muted-foreground">Notification Cards:</div>
+                    <div className="text-xs font-semibold mb-2 text-muted-foreground">Notification Cards (Each shows one notification):</div>
                     <div className="space-y-2">
                       {[
-                        { icon: '✓', color: 'green', title: 'Success', message: 'Your profile was updated successfully' },
-                        { icon: '✗', color: 'red', title: 'Error', message: 'Failed to save changes. Please try again' },
-                        { icon: '⚠', color: 'yellow', title: 'Warning', message: 'Your session will expire in 5 minutes' },
+                        { icon: '✓', color: 'green', title: 'Success', message: 'Your profile was updated successfully', isRead: false },
+                        { icon: '✗', color: 'red', title: 'Error', message: 'Failed to save changes. Please try again', isRead: false },
+                        { icon: '⚠', color: 'yellow', title: 'Warning', message: 'Your session will expire in 5 minutes', isRead: true },
                       ].map((notif, i) => (
-                        <div key={i} className="border rounded-lg p-3 bg-background">
+                        <div key={i} className="border rounded-lg p-3 bg-background relative">
+                          {/* Header Row */}
                           <div className="flex items-start justify-between mb-2">
                             <div className="flex items-center gap-2">
                               <div className={`h-4 w-4 bg-${notif.color}-500/40 rounded-full flex items-center justify-center text-[8px]`}>
                                 {notif.icon}
                               </div>
-                              <div className="text-xs font-semibold">{notif.title}</div>
-                              <div className="h-2 w-2 bg-primary rounded-full" title="Unread indicator"></div>
+                              <div className="text-xs font-semibold">{notif.title} ← TITLE</div>
+                              {!notif.isRead && (
+                                <div className="h-2 w-2 bg-primary rounded-full" title="Blue dot = unread"></div>
+                              )}
                             </div>
                             <div className="flex gap-1">
-                              <div className="h-6 w-6 bg-muted rounded flex items-center justify-center text-[10px]" title="Mark as read">
+                              <div className="h-6 w-6 bg-muted rounded flex items-center justify-center text-[10px] border border-border cursor-pointer hover:bg-muted/80" title="Mark as Read (removes blue dot)">
                                 ✓
                               </div>
-                              <div className="h-6 w-6 bg-muted rounded flex items-center justify-center text-[10px]" title="Dismiss">
+                              <div className="h-6 w-6 bg-muted rounded flex items-center justify-center text-[10px] border border-border cursor-pointer hover:bg-muted/80" title="Dismiss (removes notification)">
                                 ✕
                               </div>
                             </div>
                           </div>
+                          {/* Message Row */}
                           <div className="text-[10px] text-muted-foreground mb-1">
-                            {notif.message}
+                            {notif.message} ← MESSAGE
                           </div>
-                          <div className="text-[10px] text-muted-foreground/60">2 minutes ago</div>
+                          {/* Timestamp Row */}
+                          <div className="text-[10px] text-muted-foreground/60">2 minutes ago ← TIMESTAMP</div>
+                          
+                          {/* Annotation for read/unread */}
+                          {notif.isRead && (
+                            <div className="absolute top-1 right-1 text-[8px] bg-muted px-1 rounded">READ (no dot)</div>
+                          )}
                         </div>
                       ))}
                     </div>
@@ -182,26 +195,49 @@ interface NotificationState {
                 </div>
               </div>
 
-              <div className="mt-4 text-sm space-y-2">
-                <h4 className="font-semibold">Detailed Component Breakdown:</h4>
-                <ul className="list-disc ml-5 space-y-1 text-muted-foreground">
-                  <li><strong>Header:</strong> "Notifications" title with unread count badge (red circle)</li>
-                  <li><strong>Test Buttons:</strong> 4 buttons to trigger sample notifications (Success, Error, Warning, Info)</li>
-                  <li><strong>Filter Tabs:</strong> "All", "Unread", "Read" buttons (highlight active)</li>
-                  <li><strong>Notification Cards:</strong> Vertically stacked list showing:
-                    <ul className="list-circle ml-5 mt-1">
-                      <li>Type icon (✓ success, ✗ error, ⚠ warning, ℹ info) with colored background</li>
-                      <li>Title (Success/Error/Warning/Info)</li>
-                      <li>Blue dot indicator for unread (hide for read)</li>
-                      <li>Message text (2 lines)</li>
-                      <li>Timestamp ("2 minutes ago")</li>
-                      <li>Mark as read button (checkmark icon)</li>
-                      <li>Dismiss button (X icon)</li>
+              <div className="mt-4 text-sm space-y-3">
+                <h4 className="font-semibold text-base">🔍 Detailed Explanation:</h4>
+                
+                <div className="space-y-2 border-l-2 border-primary pl-4">
+                  <div>
+                    <strong className="text-primary">Test Notification Triggers:</strong>
+                    <p className="text-muted-foreground text-xs mt-1">These are 4 buttons that when clicked, add a sample notification to the list. For example, clicking "Success Button" calls <code className="bg-muted px-1 rounded">addNotification()</code> with type='success', title='Success', message='Your profile was updated successfully'</p>
+                  </div>
+
+                  <div>
+                    <strong className="text-primary">Filter Tabs:</strong>
+                    <p className="text-muted-foreground text-xs mt-1">"All" shows all notifications, "Unread" shows only notifications with blue dot, "Read" shows only notifications without blue dot</p>
+                  </div>
+
+                  <div>
+                    <strong className="text-primary">Notification Card Structure:</strong>
+                    <ul className="text-muted-foreground text-xs mt-1 space-y-1 ml-4">
+                      <li>• <strong>Icon:</strong> Colored circle with symbol (✓/✗/⚠/ℹ)</li>
+                      <li>• <strong>Title:</strong> "Success", "Error", "Warning", or "Info"</li>
+                      <li>• <strong>Blue Dot:</strong> Shows if notification is unread (isRead = false)</li>
+                      <li>• <strong>Message:</strong> The actual notification text like "Your profile was updated successfully"</li>
+                      <li>• <strong>Timestamp:</strong> When the notification was created (e.g., "2 minutes ago")</li>
                     </ul>
-                  </li>
-                  <li><strong>Auto-dismiss:</strong> Notifications should auto-dismiss after 5 seconds (use setTimeout)</li>
-                  <li><strong>Clear All Button:</strong> Removes all notifications at once</li>
-                </ul>
+                  </div>
+
+                  <div>
+                    <strong className="text-primary">Action Buttons on Each Card:</strong>
+                    <ul className="text-muted-foreground text-xs mt-1 space-y-1 ml-4">
+                      <li>• <strong>✓ Button (Mark as Read):</strong> Calls <code className="bg-muted px-1 rounded">markAsRead(id)</code> - removes the blue dot, sets isRead=true</li>
+                      <li>• <strong>✕ Button (Dismiss):</strong> Calls <code className="bg-muted px-1 rounded">dismissNotification(id)</code> - removes the notification from the list completely</li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <strong className="text-primary">Auto-dismiss Feature:</strong>
+                    <p className="text-muted-foreground text-xs mt-1">When a notification is added, start a 5-second timer using <code className="bg-muted px-1 rounded">setTimeout(() =&gt; dismissNotification(id), 5000)</code></p>
+                  </div>
+
+                  <div>
+                    <strong className="text-primary">Clear All Button:</strong>
+                    <p className="text-muted-foreground text-xs mt-1">Calls <code className="bg-muted px-1 rounded">clearAll()</code> to remove all notifications at once</p>
+                  </div>
+                </div>
               </div>
             </CardContent>
           </Card>

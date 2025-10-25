@@ -77,7 +77,7 @@ const Todos = () => {
                     <span className="flex-1 text-sm">{todo.text}</span>
                     <Button
                       variant="ghost"
-                      size="icon"
+                      size="icon_sm"
                       onClick={() => deleteTodo(todo.id)}
                     >
                       <Trash2 className="h-4 w-4" />
@@ -119,7 +119,7 @@ const Todos = () => {
                       </span>
                       <Button
                         variant="ghost"
-                        size="icon"
+                        size="icon_sm"
                         onClick={() => deleteTodo(todo.id)}
                       >
                         <Trash2 className="h-4 w-4" />

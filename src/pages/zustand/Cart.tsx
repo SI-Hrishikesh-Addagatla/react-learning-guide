@@ -86,7 +86,7 @@ const Cart = () => {
                       <div className="flex items-center gap-2">
                         <Button
                           variant="outline"
-                          size="icon"
+                          size="icon_sm"
                           onClick={() => updateQuantity(item.id, item.quantity - 1)}
                         >
                           <Minus className="h-4 w-4" />
@@ -96,7 +96,7 @@ const Cart = () => {
                         </span>
                         <Button
                           variant="outline"
-                          size="icon"
+                          size="icon_sm"
                           onClick={() => updateQuantity(item.id, item.quantity + 1)}
                         >
                           <Plus className="h-4 w-4" />
@@ -109,7 +109,7 @@ const Cart = () => {
                       </div>
                       <Button
                         variant="ghost"
-                        size="icon"
+                        size="icon_sm"
                         onClick={() => removeItem(item.id)}
                       >
                         <Trash2 className="h-4 w-4" />
