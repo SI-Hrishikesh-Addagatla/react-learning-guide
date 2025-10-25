@@ -21,23 +21,20 @@ interface NotificationState {
 export const useNotificationStore = create<NotificationState>((set,get) => ({
     notifications: [],
     addNotification: (newNotification: Notification) => {
-        const currentNotifications = get().notifications;
-        currentNotifications.unshift(newNotification);
-        set({ notifications: currentNotifications });
+        set((state) => ({ notifications: [newNotification, ...state.notifications] }));
+        setTimeout(() => {
+            get().dismissNotification(newNotification.id);
+        }, 30000);
     },
     dismissNotification: (id: string) => {
-        const currentNotifications = get().notifications;
-        currentNotifications.filter((notification)=> notification.id !== id);
-        set({ notifications: currentNotifications });
+        set((state) => ({ notifications: state.notifications.filter((notification) => notification.id !== id) }));
     },
     markAsRead: (id: string) => {
-        const currentNotifications = get().notifications;
-        currentNotifications.map((notification) => {
-            if(notification.id === id){
-                notification.isRead = true;
-            }
-        });
-        set({ notifications: currentNotifications });
+        set((state) => ({
+            notifications: state.notifications.map((notification) =>
+                notification.id === id ? { ...notification, isRead: true } : notification
+            ),
+        }));
     },
     clearAll: () => {
         set({ notifications: [] });

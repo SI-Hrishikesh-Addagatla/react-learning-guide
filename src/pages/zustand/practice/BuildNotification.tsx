@@ -6,11 +6,15 @@ import { ArrowLeft } from 'lucide-react';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { useState } from 'react';
 import { Tabs, TabsList, TabsTrigger } from '@radix-ui/react-tabs';
-import { notifications } from './stores/notifications/notificationData';
 import { getRelativeTime } from '@/utils/getRelativeTime';
+import { useNotificationStore } from './stores/notifications/notificationStore';
+import { createNotification } from './stores/notifications/notificationData';
 
 const BuildNotification = () => {
   const [showPreview, setShowPreview] = useState(false);
+  const [activeFilter, setActiveFilter] = useState('all');
+
+  const {notifications,addNotification,dismissNotification,markAsRead,clearAll,getUnreadCount,filterNotificationsByStatus} = useNotificationStore();
 
   const getIconForType = (type: string) => {
     switch (type) {
@@ -26,6 +30,9 @@ const BuildNotification = () => {
         return '';
     }
   }
+
+  const filterNotifications = filterNotificationsByStatus ? filterNotificationsByStatus(activeFilter) : notifications;
+
   return (
     <div className="container mx-auto p-6 max-w-6xl">
       <div className='flex justify-between flex-wrap'>
@@ -51,7 +58,7 @@ const BuildNotification = () => {
                       🔔 Notifications
                     </div>
                     <Badge variant="destructive" className='h-6 w-12 bg-destructive/30 flex items-center justify-center text-sm'>
-                      {notifications.filter(n => !n.isRead).length}
+                      {getUnreadCount()}
                     </Badge>
                   </div>
                   <div className="text-sm text-muted-foreground">
@@ -63,17 +70,17 @@ const BuildNotification = () => {
                 <div>
                   <div className="text-xs font-semibold mb-2 text-muted-foreground">Test Notification Triggers (Click to Add Sample Notification):</div>
                   <div className="grid grid-cols-2 gap-2">
-                    <Button variant='success_light' size='sm' className="text-xs">✓ Success Button</Button>
-                    <Button variant='error_light' size='sm' className="text-xs">✗ Error Button</Button>
-                    <Button variant='warning_light' size='sm' className="text-xs">⚠ Warning Button</Button>
-                    <Button variant='info_light' size='sm' className="text-xs">ℹ Info Button</Button>
+                    <Button variant='success_light' size='sm' className="text-xs" onClick={()=> {addNotification(createNotification('success'))}}>✓ Success Button</Button>
+                    <Button variant='error_light' size='sm' className="text-xs" onClick={()=> {addNotification(createNotification('error'))}}>✗ Error Button</Button>
+                    <Button variant='warning_light' size='sm' className="text-xs" onClick={()=> {addNotification(createNotification('warning'))}}>⚠ Warning Button</Button>
+                    <Button variant='info_light' size='sm' className="text-xs" onClick={()=> {addNotification(createNotification('info'))}}>ℹ Info Button</Button>
                   </div>
                 </div>
 
                 {/* Filter Tabs */}
                 <div>
                   <div className="text-xs font-semibold mb-2 text-muted-foreground">Filter:</div>
-                  <Tabs defaultValue='all'>
+                  <Tabs value={activeFilter} onValueChange={(value) => setActiveFilter(value)}>
                     <TabsList className="flex gap-2 flex-wrap h-auto bg-transparent p-0">
                       <TabsTrigger 
                         value="all" 
@@ -100,7 +107,7 @@ const BuildNotification = () => {
                 {/* Notification List */}
                 <div>
                   <div className="space-y-2">
-                    {notifications.map((notif, i) => (
+                    {filterNotifications.map((notif, i) => (
                       <div key={i} className="border rounded-lg p-3 bg-background relative">
                         {/* Header Row */}
                         <div className="flex items-start justify-between mb-2">
@@ -114,8 +121,8 @@ const BuildNotification = () => {
                             )}
                           </div>
                           <div className="flex gap-1">
-                            <Button className="bg-muted rounded text-xs text-white hover:text-black" size='icon_xs' onClick={() => {}}>✓</Button>
-                            <Button className="bg-muted rounded text-xs text-white hover:text-black" size='icon_xs' onClick={() => {}}>✕</Button>
+                            <Button className="bg-muted rounded text-xs text-white hover:text-black" size='icon_xs' onClick={() => {markAsRead(notif.id)}}>✓</Button>
+                            <Button className="bg-muted rounded text-xs text-white hover:text-black" size='icon_xs' onClick={() => {dismissNotification(notif.id)}}>✕</Button>
                           </div>
                         </div>
                         {/* Message Row */}
@@ -131,7 +138,7 @@ const BuildNotification = () => {
 
                 {/* Footer Actions */}
                 <div className="border-t pt-3">
-                  <Button variant="destructive_light" size='sm' className='w-full text-sm'>Clear All Notifications</Button>
+                  <Button variant="destructive_light" size='sm' className='w-full text-sm' onClick={clearAll}>Clear All Notifications</Button>
                 </div>
               </div>
             </div>
@@ -385,5 +392,6 @@ const BuildNotification = () => {
     </div>
   );
 };
+
 
 export default BuildNotification;
