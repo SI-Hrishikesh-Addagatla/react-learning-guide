@@ -17,7 +17,10 @@ const button = tv({
       default: "h-10 px-4 py-2",
       sm: "h-9 rounded-md px-3",
       lg: "h-11 rounded-md px-8",
-      icon: "h-10 w-10",
+      icon_xs: "h-6 w-6 text-sm",
+      icon_sm: "h-8 w-8 text-sm",
+      icon_md: "h-10 w-10 text-base",
+      icon_lg: "h-12 w-12 text-lg",
     },
   },
   defaultVariants: {

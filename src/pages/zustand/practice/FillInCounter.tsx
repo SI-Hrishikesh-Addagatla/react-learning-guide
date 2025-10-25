@@ -7,20 +7,10 @@ import { Link } from 'react-router-dom';
 import { ArrowLeft, Minus, Plus, RotateCcw } from 'lucide-react';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { useState } from 'react';
-
-// TODO: Import your counter store here
-// import { useCounterStore } from '@/stores/practiceCounterStore';
+import { useCountStore } from './stores/countStore';
 
 const FillInCounter = () => {
-  // TODO: Get state and actions from your store
-  // const { count, increment, decrement, reset, incrementByAmount } = useCounterStore();
-  
-  // Placeholder state for demo (remove this when you implement the store)
-  const [count] = useState(0);
-  const increment = () => console.log('Implement increment');
-  const decrement = () => console.log('Implement decrement');
-  const reset = () => console.log('Implement reset');
-  const incrementByAmount = (amount: number) => console.log('Implement incrementByAmount', amount);
+  const {count, increment, decrement, reset, incrementByAmount} = useCountStore();
 
   const [customAmount, setCustomAmount] = useState('5');
 
