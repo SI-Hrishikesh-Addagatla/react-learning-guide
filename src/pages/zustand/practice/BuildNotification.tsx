@@ -6,9 +6,26 @@ import { ArrowLeft } from 'lucide-react';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { useState } from 'react';
 import { Tabs, TabsList, TabsTrigger } from '@radix-ui/react-tabs';
+import { notifications } from './stores/notifications/notificationData';
+import { getRelativeTime } from '@/utils/getRelativeTime';
 
 const BuildNotification = () => {
   const [showPreview, setShowPreview] = useState(false);
+
+  const getIconForType = (type: string) => {
+    switch (type) {
+      case 'success':
+        return '✓';
+      case 'error': 
+        return '✗';
+      case 'warning':
+        return '⚠';
+      case 'info':
+        return 'ℹ';
+      default:
+        return '';
+    }
+  }
   return (
     <div className="container mx-auto p-6 max-w-6xl">
       <div className='flex justify-between flex-wrap'>
@@ -34,7 +51,7 @@ const BuildNotification = () => {
                       🔔 Notifications
                     </div>
                     <Badge variant="destructive" className='h-6 w-12 bg-destructive/30 flex items-center justify-center text-sm'>
-                      5
+                      {notifications.filter(n => !n.isRead).length}
                     </Badge>
                   </div>
                   <div className="text-sm text-muted-foreground">
@@ -83,21 +100,17 @@ const BuildNotification = () => {
                 {/* Notification List */}
                 <div>
                   <div className="space-y-2">
-                    {[
-                      { icon: '✓', color: 'green', title: 'Success', message: 'Your profile was updated successfully', isRead: false },
-                      { icon: '✗', color: 'red', title: 'Error', message: 'Failed to save changes. Please try again', isRead: false },
-                      { icon: '⚠', color: 'yellow', title: 'Warning', message: 'Your session will expire in 5 minutes', isRead: true },
-                    ].map((notif, i) => (
+                    {notifications.map((notif, i) => (
                       <div key={i} className="border rounded-lg p-3 bg-background relative">
                         {/* Header Row */}
                         <div className="flex items-start justify-between mb-2">
                           <div className="flex items-center gap-2">
-                            <div className={`h-4 w-4 bg-${notif.color}-500/40 rounded-full flex items-center justify-center text-[10px]`}>
-                              {notif.icon}
+                            <div className={`h-4 w-4 rounded-full flex items-center justify-center text-[10px]`}>
+                              {getIconForType(notif.type)}
                             </div>
-                            <div className="text-sm font-semibold">{notif.title} ← TITLE</div>
+                            <div className="text-sm font-semibold">{notif.title}</div>
                             {!notif.isRead && (
-                              <div className="h-2 w-2 bg-primary rounded-full" title="Blue dot = unread"></div>
+                              <div className="h-2 w-2 bg-primary rounded-full"></div>
                             )}
                           </div>
                           <div className="flex gap-1">
@@ -107,10 +120,10 @@ const BuildNotification = () => {
                         </div>
                         {/* Message Row */}
                         <div className="text-xs text-muted-foreground mb-1">
-                          {notif.message} ← MESSAGE
+                          {notif.message}
                         </div>
                         {/* Timestamp Row */}
-                        <div className="text-xs text-muted-foreground/60">2 minutes ago ← TIMESTAMP</div>
+                        <div className="text-xs text-muted-foreground/60">{getRelativeTime(notif.createdAt)}</div>
                       </div>
                     ))}
                   </div>
