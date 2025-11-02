@@ -10,37 +10,74 @@ import { Switch } from '@/components/ui/switch';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
-import { Copy, Check, ChevronDown, AlertCircle } from 'lucide-react';
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Copy, Check, ChevronDown, AlertCircle, Plus, Trash2, Edit, X, CheckCircle, Bell, Bookmark } from 'lucide-react';
 
 const componentDocs = [
   {
     name: 'Button',
-    description: 'Clickable button component with multiple variants',
+    description: 'Clickable button component with multiple variants and sizes',
     preview: (
-      <div className="flex flex-wrap gap-2">
-        <Button variant="default">Default</Button>
-        <Button variant="secondary">Secondary</Button>
-        <Button variant="destructive">Destructive</Button>
-        <Button variant="outline">Outline</Button>
-        <Button variant="ghost">Ghost</Button>
-        <Button variant="link">Link</Button>
+      <div className="space-y-4">
+        <div className="flex flex-wrap gap-2">
+          <Button variant="default">Default</Button>
+          <Button variant="secondary">Secondary</Button>
+          <Button variant="destructive">Destructive</Button>
+          <Button variant="outline">Outline</Button>
+          <Button variant="ghost">Ghost</Button>
+          <Button variant="link">Link</Button>
+        </div>
+        <div className="flex flex-wrap gap-2">
+          <Button variant="success_light">Success</Button>
+          <Button variant="error_light">Error</Button>
+          <Button variant="warning_light">Warning</Button>
+          <Button variant="info_light">Info</Button>
+        </div>
+        <div className="flex flex-wrap gap-2 items-center">
+          <Button size="icon_xs"><Plus /></Button>
+          <Button size="icon_sm"><Edit /></Button>
+          <Button size="icon_md"><Trash2 /></Button>
+          <Button size="icon_lg"><CheckCircle /></Button>
+        </div>
+        <div className="flex flex-wrap gap-2">
+          <Button><Plus className="mr-2 h-4 w-4" /> Add Item</Button>
+          <Button variant="destructive"><Trash2 className="mr-2 h-4 w-4" /> Delete</Button>
+          <Button variant="outline"><Edit className="mr-2 h-4 w-4" /> Edit</Button>
+        </div>
       </div>
     ),
     code: `import { Button } from '@/components/ui/button';
+import { Plus, Edit, Trash2 } from 'lucide-react';
 
-// Usage
-<Button variant="default">Click me</Button>
+// Basic variants
+<Button variant="default">Default</Button>
 <Button variant="secondary">Secondary</Button>
-<Button variant="destructive">Delete</Button>
+<Button variant="destructive">Destructive</Button>
 <Button variant="outline">Outline</Button>
 <Button variant="ghost">Ghost</Button>
 <Button variant="link">Link</Button>
 
-// With sizes
+// Light variants (with transparent backgrounds)
+<Button variant="success_light">Success</Button>
+<Button variant="error_light">Error</Button>
+<Button variant="warning_light">Warning</Button>
+<Button variant="info_light">Info</Button>
+
+// Icon only buttons
+<Button size="icon_xs"><Plus /></Button>
+<Button size="icon_sm"><Edit /></Button>
+<Button size="icon_md"><Trash2 /></Button>
+<Button size="icon_lg"><CheckCircle /></Button>
+
+// Buttons with icons and text
+<Button><Plus className="mr-2 h-4 w-4" /> Add Item</Button>
+<Button variant="destructive"><Trash2 className="mr-2 h-4 w-4" /> Delete</Button>
+
+// Size variants
 <Button size="sm">Small</Button>
 <Button size="default">Default</Button>
-<Button size="lg">Large</Button>
-<Button size="icon"><Icon /></Button>`,
+<Button size="lg">Large</Button>`,
   },
   {
     name: 'Card',
@@ -268,6 +305,156 @@ import { AlertCircle } from 'lucide-react';
     <p>Your hidden content here</p>
   </CollapsibleContent>
 </Collapsible>`,
+  },
+  {
+    name: 'Dialog',
+    description: 'Modal dialog component for confirmations and forms',
+    preview: (
+      <div className="flex flex-wrap gap-2">
+        <Dialog>
+          <DialogTrigger asChild>
+            <Button variant="outline">Open Dialog</Button>
+          </DialogTrigger>
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>Are you sure?</DialogTitle>
+              <DialogDescription>
+                This action cannot be undone. This will permanently delete your item.
+              </DialogDescription>
+            </DialogHeader>
+            <DialogFooter>
+              <Button variant="outline">Cancel</Button>
+              <Button variant="destructive">Delete</Button>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
+
+        <Dialog>
+          <DialogTrigger asChild>
+            <Button><Plus className="mr-2 h-4 w-4" /> Add Bookmark</Button>
+          </DialogTrigger>
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>Add New Bookmark</DialogTitle>
+              <DialogDescription>
+                Enter the details for your new bookmark
+              </DialogDescription>
+            </DialogHeader>
+            <div className="space-y-4">
+              <div>
+                <Label htmlFor="title">Title</Label>
+                <Input id="title" placeholder="My Bookmark" />
+              </div>
+              <div>
+                <Label htmlFor="url">URL</Label>
+                <Input id="url" type="url" placeholder="https://example.com" />
+              </div>
+            </div>
+            <DialogFooter>
+              <Button variant="outline">Cancel</Button>
+              <Button>Save</Button>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
+      </div>
+    ),
+    code: `import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { Button } from '@/components/ui/button';
+
+// Delete Confirmation Dialog
+<Dialog>
+  <DialogTrigger asChild>
+    <Button variant="destructive">Delete</Button>
+  </DialogTrigger>
+  <DialogContent>
+    <DialogHeader>
+      <DialogTitle>Are you sure?</DialogTitle>
+      <DialogDescription>
+        This action cannot be undone.
+      </DialogDescription>
+    </DialogHeader>
+    <DialogFooter>
+      <Button variant="outline">Cancel</Button>
+      <Button variant="destructive">Delete</Button>
+    </DialogFooter>
+  </DialogContent>
+</Dialog>
+
+// Form Dialog
+<Dialog>
+  <DialogTrigger asChild>
+    <Button>Add Item</Button>
+  </DialogTrigger>
+  <DialogContent>
+    <DialogHeader>
+      <DialogTitle>Add New Item</DialogTitle>
+      <DialogDescription>
+        Fill in the details below
+      </DialogDescription>
+    </DialogHeader>
+    <div className="space-y-4">
+      <Input placeholder="Enter value..." />
+    </div>
+    <DialogFooter>
+      <Button variant="outline">Cancel</Button>
+      <Button>Save</Button>
+    </DialogFooter>
+  </DialogContent>
+</Dialog>`,
+  },
+  {
+    name: 'Tabs',
+    description: 'Tabbed navigation component for organizing content',
+    preview: (
+      <Tabs defaultValue="all" className="max-w-md">
+        <TabsList>
+          <TabsTrigger value="all">All</TabsTrigger>
+          <TabsTrigger value="active">Active</TabsTrigger>
+          <TabsTrigger value="completed">Completed</TabsTrigger>
+        </TabsList>
+        <TabsContent value="all" className="p-4 border rounded-md mt-2">
+          <p className="text-sm">All items will be shown here</p>
+        </TabsContent>
+        <TabsContent value="active" className="p-4 border rounded-md mt-2">
+          <p className="text-sm">Active items will be shown here</p>
+        </TabsContent>
+        <TabsContent value="completed" className="p-4 border rounded-md mt-2">
+          <p className="text-sm">Completed items will be shown here</p>
+        </TabsContent>
+      </Tabs>
+    ),
+    code: `import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+
+// Usage
+<Tabs defaultValue="all">
+  <TabsList>
+    <TabsTrigger value="all">All</TabsTrigger>
+    <TabsTrigger value="active">Active</TabsTrigger>
+    <TabsTrigger value="completed">Completed</TabsTrigger>
+  </TabsList>
+  <TabsContent value="all">
+    <p>All items content</p>
+  </TabsContent>
+  <TabsContent value="active">
+    <p>Active items content</p>
+  </TabsContent>
+  <TabsContent value="completed">
+    <p>Completed items content</p>
+  </TabsContent>
+</Tabs>
+
+// Custom styling for filter tabs
+<Tabs value={activeFilter} onValueChange={setActiveFilter}>
+  <TabsList className="flex gap-2 flex-wrap h-auto bg-transparent p-0">
+    <TabsTrigger 
+      value="all" 
+      className="px-4 py-2 rounded-lg border data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+    >
+      All
+    </TabsTrigger>
+    <TabsTrigger value="unread">Unread</TabsTrigger>
+  </TabsList>
+</Tabs>`,
   },
 ];
 

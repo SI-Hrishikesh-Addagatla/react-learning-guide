@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { useState } from 'react';
-import { Tabs, TabsList, TabsTrigger } from '@radix-ui/react-tabs';
+import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { getRelativeTime } from '@/utils/getRelativeTime';
 import { useNotificationStore } from './stores/notifications/notificationStore';
 import { createNotification } from './stores/notifications/notificationData';
