@@ -98,6 +98,28 @@ const UseStateIndex = () => {
         </CardContent>
       </Card>
 
+      <Card className="border-primary/20 bg-primary/5">
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2">
+            🎯 Ready to Practice?
+          </CardTitle>
+          <CardDescription>
+            Test your understanding with hands-on challenges
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <Link to="/hooks/use-state/practice">
+            <div className="flex items-center justify-between p-4 border-2 border-primary rounded-lg bg-background hover:bg-primary/5 transition-colors cursor-pointer">
+              <div>
+                <div className="font-medium">Practice Problems</div>
+                <div className="text-sm text-muted-foreground">Build real-world features with useState</div>
+              </div>
+              <Badge>3 Challenges</Badge>
+            </div>
+          </Link>
+        </CardContent>
+      </Card>
+
       <div className="space-y-4">
         <h2 className="text-2xl font-bold">Practical Examples</h2>
         

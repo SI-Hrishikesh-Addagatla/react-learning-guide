@@ -20,10 +20,18 @@ import UseStateIndex from "./pages/hooks/use-state/Index";
 import UseStateCounter from "./pages/hooks/use-state/Counter";
 import UseStateForm from "./pages/hooks/use-state/Form";
 import UseStateTodos from "./pages/hooks/use-state/Todos";
+import UseStatePractice from "./pages/hooks/use-state/practice/Index";
+import UseStateTemperatureConverter from "./pages/hooks/use-state/practice/TemperatureConverter";
+import UseStateShoppingCart from "./pages/hooks/use-state/practice/ShoppingCart";
+import UseStateMultiStepForm from "./pages/hooks/use-state/practice/MultiStepForm";
 import UseEffectIndex from "./pages/hooks/use-effect/Index";
 import UseEffectDataFetching from "./pages/hooks/use-effect/DataFetching";
 import UseEffectTimer from "./pages/hooks/use-effect/Timer";
 import UseEffectEventListeners from "./pages/hooks/use-effect/EventListeners";
+import UseEffectPractice from "./pages/hooks/use-effect/practice/Index";
+import UseEffectWindowTracker from "./pages/hooks/use-effect/practice/WindowTracker";
+import UseEffectAutoSaveForm from "./pages/hooks/use-effect/practice/AutoSaveForm";
+import UseEffectSearchFilter from "./pages/hooks/use-effect/practice/SearchFilter";
 import UseRefIndex from "./pages/hooks/use-ref/Index";
 import UseRefInputFocus from "./pages/hooks/use-ref/InputFocus";
 import UseRefVideoPlayer from "./pages/hooks/use-ref/VideoPlayer";
@@ -78,10 +86,18 @@ const App = () => (
             <Route path="/hooks/use-state/counter" element={<UseStateCounter />} />
             <Route path="/hooks/use-state/form" element={<UseStateForm />} />
             <Route path="/hooks/use-state/todos" element={<UseStateTodos />} />
+            <Route path="/hooks/use-state/practice" element={<UseStatePractice />} />
+            <Route path="/hooks/use-state/practice/temperature-converter" element={<UseStateTemperatureConverter />} />
+            <Route path="/hooks/use-state/practice/shopping-cart" element={<UseStateShoppingCart />} />
+            <Route path="/hooks/use-state/practice/multi-step-form" element={<UseStateMultiStepForm />} />
             <Route path="/hooks/use-effect" element={<UseEffectIndex />} />
             <Route path="/hooks/use-effect/data-fetching" element={<UseEffectDataFetching />} />
             <Route path="/hooks/use-effect/timer" element={<UseEffectTimer />} />
             <Route path="/hooks/use-effect/event-listeners" element={<UseEffectEventListeners />} />
+            <Route path="/hooks/use-effect/practice" element={<UseEffectPractice />} />
+            <Route path="/hooks/use-effect/practice/window-tracker" element={<UseEffectWindowTracker />} />
+            <Route path="/hooks/use-effect/practice/auto-save-form" element={<UseEffectAutoSaveForm />} />
+            <Route path="/hooks/use-effect/practice/search-filter" element={<UseEffectSearchFilter />} />
             <Route path="/hooks/use-ref" element={<UseRefIndex />} />
             <Route path="/hooks/use-ref/input-focus" element={<UseRefInputFocus />} />
             <Route path="/hooks/use-ref/video-player" element={<UseRefVideoPlayer />} />
