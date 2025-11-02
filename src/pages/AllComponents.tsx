@@ -406,26 +406,83 @@ import { Button } from '@/components/ui/button';
     name: 'Tabs',
     description: 'Tabbed navigation component for organizing content',
     preview: (
-      <Tabs defaultValue="all" className="max-w-md">
-        <TabsList>
-          <TabsTrigger value="all">All</TabsTrigger>
-          <TabsTrigger value="active">Active</TabsTrigger>
-          <TabsTrigger value="completed">Completed</TabsTrigger>
-        </TabsList>
-        <TabsContent value="all" className="p-4 border rounded-md mt-2">
-          <p className="text-sm">All items will be shown here</p>
-        </TabsContent>
-        <TabsContent value="active" className="p-4 border rounded-md mt-2">
-          <p className="text-sm">Active items will be shown here</p>
-        </TabsContent>
-        <TabsContent value="completed" className="p-4 border rounded-md mt-2">
-          <p className="text-sm">Completed items will be shown here</p>
-        </TabsContent>
-      </Tabs>
+      <div className="space-y-6 max-w-md">
+        <div>
+          <h4 className="text-sm font-semibold mb-3">Default Style</h4>
+          <Tabs defaultValue="all">
+            <TabsList>
+              <TabsTrigger value="all">All</TabsTrigger>
+              <TabsTrigger value="active">Active</TabsTrigger>
+              <TabsTrigger value="completed">Completed</TabsTrigger>
+            </TabsList>
+            <TabsContent value="all" className="p-4 border rounded-md mt-2">
+              <p className="text-sm">All items will be shown here</p>
+            </TabsContent>
+            <TabsContent value="active" className="p-4 border rounded-md mt-2">
+              <p className="text-sm">Active items will be shown here</p>
+            </TabsContent>
+            <TabsContent value="completed" className="p-4 border rounded-md mt-2">
+              <p className="text-sm">Completed items will be shown here</p>
+            </TabsContent>
+          </Tabs>
+        </div>
+
+        <div>
+          <h4 className="text-sm font-semibold mb-3">Filter Tabs Style (Bookmark Manager)</h4>
+          <Tabs defaultValue="all">
+            <TabsList className="flex gap-2 flex-wrap h-auto bg-transparent p-0">
+              <TabsTrigger 
+                value="all" 
+                className="px-4 py-2 rounded-lg border data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+              >
+                All
+              </TabsTrigger>
+              <TabsTrigger 
+                value="work" 
+                className="px-4 py-2 rounded-lg border data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+              >
+                Work
+              </TabsTrigger>
+              <TabsTrigger 
+                value="personal" 
+                className="px-4 py-2 rounded-lg border data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+              >
+                Personal
+              </TabsTrigger>
+            </TabsList>
+          </Tabs>
+        </div>
+
+        <div>
+          <h4 className="text-sm font-semibold mb-3">Pill Style (Notification Manager)</h4>
+          <Tabs defaultValue="all">
+            <TabsList className="flex gap-2 h-auto bg-transparent p-0">
+              <TabsTrigger 
+                value="all" 
+                className="px-3 py-1.5 rounded-full border data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:border-primary"
+              >
+                All
+              </TabsTrigger>
+              <TabsTrigger 
+                value="unread" 
+                className="px-3 py-1.5 rounded-full border data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:border-primary"
+              >
+                Unread
+              </TabsTrigger>
+              <TabsTrigger 
+                value="read" 
+                className="px-3 py-1.5 rounded-full border data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:border-primary"
+              >
+                Read
+              </TabsTrigger>
+            </TabsList>
+          </Tabs>
+        </div>
+      </div>
     ),
     code: `import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
-// Usage
+// Default Style - With Content Switching
 <Tabs defaultValue="all">
   <TabsList>
     <TabsTrigger value="all">All</TabsTrigger>
@@ -443,8 +500,9 @@ import { Button } from '@/components/ui/button';
   </TabsContent>
 </Tabs>
 
-// Custom styling for filter tabs
-<Tabs value={activeFilter} onValueChange={setActiveFilter}>
+// Filter Tabs Style (Bookmark Manager)
+// Transparent background, individual borders, rectangular
+<Tabs value={category} onValueChange={setCategory}>
   <TabsList className="flex gap-2 flex-wrap h-auto bg-transparent p-0">
     <TabsTrigger 
       value="all" 
@@ -452,7 +510,31 @@ import { Button } from '@/components/ui/button';
     >
       All
     </TabsTrigger>
-    <TabsTrigger value="unread">Unread</TabsTrigger>
+    <TabsTrigger 
+      value="work" 
+      className="px-4 py-2 rounded-lg border data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+    >
+      Work
+    </TabsTrigger>
+  </TabsList>
+</Tabs>
+
+// Pill Style (Notification Manager)
+// Rounded full borders, compact
+<Tabs value={filter} onValueChange={setFilter}>
+  <TabsList className="flex gap-2 h-auto bg-transparent p-0">
+    <TabsTrigger 
+      value="all" 
+      className="px-3 py-1.5 rounded-full border data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:border-primary"
+    >
+      All
+    </TabsTrigger>
+    <TabsTrigger 
+      value="unread" 
+      className="px-3 py-1.5 rounded-full border data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:border-primary"
+    >
+      Unread
+    </TabsTrigger>
   </TabsList>
 </Tabs>`,
   },
