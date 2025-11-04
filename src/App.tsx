@@ -56,6 +56,10 @@ import UseImperativeHandleIndex from "./pages/hooks/use-imperative-handle/Index"
 import UseImperativeHandleInputFocus from "./pages/hooks/use-imperative-handle/InputFocusControl";
 import UseImperativeHandleFormControl from "./pages/hooks/use-imperative-handle/FormControl";
 import UseImperativeHandleModalControl from "./pages/hooks/use-imperative-handle/ModalControl";
+import UseFormIndex from "./pages/hooks/use-form/Index";
+import UseFormRegistration from "./pages/hooks/use-form/Registration";
+import UseFormLogin from "./pages/hooks/use-form/Login";
+import UseFormSurvey from "./pages/hooks/use-form/Survey";
 import AllComponents from "./pages/AllComponents";
 import NotFound from "./pages/NotFound";
 
@@ -122,6 +126,10 @@ const App = () => (
             <Route path="/hooks/use-imperative-handle/input-focus" element={<UseImperativeHandleInputFocus />} />
             <Route path="/hooks/use-imperative-handle/form-control" element={<UseImperativeHandleFormControl />} />
             <Route path="/hooks/use-imperative-handle/modal-control" element={<UseImperativeHandleModalControl />} />
+            <Route path="/hooks/use-form" element={<UseFormIndex />} />
+            <Route path="/hooks/use-form/registration" element={<UseFormRegistration />} />
+            <Route path="/hooks/use-form/login" element={<UseFormLogin />} />
+            <Route path="/hooks/use-form/survey" element={<UseFormSurvey />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

@@ -9,7 +9,8 @@ import {
   Target, 
   Zap, 
   Repeat, 
-  Wrench 
+  Wrench,
+  FileText
 } from 'lucide-react';
 
 const hooks = [
@@ -75,6 +76,15 @@ const hooks = [
     examples: 3,
     difficulty: 'Advanced',
     useCases: ['Custom components', 'Controlled APIs', 'Imperative actions'],
+  },
+  {
+    path: '/hooks/use-form',
+    title: 'useForm',
+    description: 'Build powerful forms with validation using react-hook-form',
+    icon: FileText,
+    examples: 3,
+    difficulty: 'Intermediate',
+    useCases: ['Form validation', 'Complex forms', 'Error handling'],
   },
   {
     path: '/hooks/custom-hooks',
