@@ -36,6 +36,10 @@ import UseRefIndex from "./pages/hooks/use-ref/Index";
 import UseRefInputFocus from "./pages/hooks/use-ref/InputFocus";
 import UseRefVideoPlayer from "./pages/hooks/use-ref/VideoPlayer";
 import UseRefPreviousValue from "./pages/hooks/use-ref/PreviousValue";
+import UseRefPractice from "./pages/hooks/use-ref/practice/Index";
+import ClickCounter from "./pages/hooks/use-ref/practice/ClickCounter";
+import ScrollToSection from "./pages/hooks/use-ref/practice/ScrollToSection";
+import VideoPlayerPractice from "./pages/hooks/use-ref/practice/VideoPlayerPractice";
 import UseReducerIndex from "./pages/hooks/use-reducer/Index";
 import UseReducerCounter from "./pages/hooks/use-reducer/Counter";
 import UseReducerForm from "./pages/hooks/use-reducer/Form";
@@ -114,6 +118,10 @@ const App = () => (
             <Route path="/hooks/use-ref/input-focus" element={<UseRefInputFocus />} />
             <Route path="/hooks/use-ref/video-player" element={<UseRefVideoPlayer />} />
             <Route path="/hooks/use-ref/previous-value" element={<UseRefPreviousValue />} />
+            <Route path="/hooks/use-ref/practice" element={<UseRefPractice />} />
+            <Route path="/hooks/use-ref/practice/click-counter" element={<ClickCounter />} />
+            <Route path="/hooks/use-ref/practice/scroll-to-section" element={<ScrollToSection />} />
+            <Route path="/hooks/use-ref/practice/video-player" element={<VideoPlayerPractice />} />
             <Route path="/hooks/use-reducer" element={<UseReducerIndex />} />
             <Route path="/hooks/use-reducer/counter" element={<UseReducerCounter />} />
             <Route path="/hooks/use-reducer/form" element={<UseReducerForm />} />
