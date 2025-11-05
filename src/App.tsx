@@ -40,10 +40,18 @@ import UseReducerIndex from "./pages/hooks/use-reducer/Index";
 import UseReducerCounter from "./pages/hooks/use-reducer/Counter";
 import UseReducerForm from "./pages/hooks/use-reducer/Form";
 import UseReducerTodoList from "./pages/hooks/use-reducer/TodoList";
+import UseReducerPractice from "./pages/hooks/use-reducer/practice/Index";
+import UseReducerThemeToggle from "./pages/hooks/use-reducer/practice/ThemeToggle";
+import UseReducerShoppingCartPractice from "./pages/hooks/use-reducer/practice/ShoppingCartPractice";
+import UseReducerFormWizard from "./pages/hooks/use-reducer/practice/FormWizard";
 import UseMemoIndex from "./pages/hooks/use-memo/Index";
 import UseMemoExpensiveCalculation from "./pages/hooks/use-memo/ExpensiveCalculation";
 import UseMemoFilteredList from "./pages/hooks/use-memo/FilteredList";
 import UseMemoComplexObject from "./pages/hooks/use-memo/ComplexObject";
+import UseMemoPractice from "./pages/hooks/use-memo/practice/Index";
+import UseMemoFilteredListPractice from "./pages/hooks/use-memo/practice/FilteredListPractice";
+import UseMemoComplexCalculationPractice from "./pages/hooks/use-memo/practice/ComplexCalculationPractice";
+import UseMemoDataDashboard from "./pages/hooks/use-memo/practice/DataDashboard";
 import UseCallbackIndex from "./pages/hooks/use-callback/Index";
 import UseCallbackParentChild from "./pages/hooks/use-callback/ParentChild";
 import UseCallbackEventHandler from "./pages/hooks/use-callback/EventHandler";
@@ -110,10 +118,18 @@ const App = () => (
             <Route path="/hooks/use-reducer/counter" element={<UseReducerCounter />} />
             <Route path="/hooks/use-reducer/form" element={<UseReducerForm />} />
             <Route path="/hooks/use-reducer/todo-list" element={<UseReducerTodoList />} />
+            <Route path="/hooks/use-reducer/practice" element={<UseReducerPractice />} />
+            <Route path="/hooks/use-reducer/practice/theme-toggle" element={<UseReducerThemeToggle />} />
+            <Route path="/hooks/use-reducer/practice/shopping-cart" element={<UseReducerShoppingCartPractice />} />
+            <Route path="/hooks/use-reducer/practice/form-wizard" element={<UseReducerFormWizard />} />
             <Route path="/hooks/use-memo" element={<UseMemoIndex />} />
             <Route path="/hooks/use-memo/expensive-calculation" element={<UseMemoExpensiveCalculation />} />
             <Route path="/hooks/use-memo/filtered-list" element={<UseMemoFilteredList />} />
             <Route path="/hooks/use-memo/complex-object" element={<UseMemoComplexObject />} />
+            <Route path="/hooks/use-memo/practice" element={<UseMemoPractice />} />
+            <Route path="/hooks/use-memo/practice/filtered-list" element={<UseMemoFilteredListPractice />} />
+            <Route path="/hooks/use-memo/practice/complex-calculation" element={<UseMemoComplexCalculationPractice />} />
+            <Route path="/hooks/use-memo/practice/data-dashboard" element={<UseMemoDataDashboard />} />
             <Route path="/hooks/use-callback" element={<UseCallbackIndex />} />
             <Route path="/hooks/use-callback/parent-child" element={<UseCallbackParentChild />} />
             <Route path="/hooks/use-callback/event-handler" element={<UseCallbackEventHandler />} />

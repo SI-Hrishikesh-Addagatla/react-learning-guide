@@ -96,6 +96,24 @@ const UseRefIndex = () => {
         })}
       </div>
 
+      <Card className="border-primary/20 bg-primary/5">
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2">🎯 Ready to Practice?</CardTitle>
+          <CardDescription>Test your understanding with hands-on challenges</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <Link to="/hooks/use-ref/practice">
+            <div className="flex items-center justify-between p-4 border-2 border-primary rounded-lg bg-background hover:bg-primary/5 transition-colors cursor-pointer">
+              <div>
+                <div className="font-medium">Practice Problems</div>
+                <div className="text-sm text-muted-foreground">Build real-world features with useRef</div>
+              </div>
+              <Badge>3 Challenges</Badge>
+            </div>
+          </Link>
+        </CardContent>
+      </Card>
+
       <Card className="p-6 bg-muted/50">
         <h3 className="text-xl font-semibold mb-4">Learning Path</h3>
         <ol className="space-y-2 list-decimal list-inside text-muted-foreground">
