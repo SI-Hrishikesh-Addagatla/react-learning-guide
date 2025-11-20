@@ -142,6 +142,10 @@ const App = () => (
             <Route path="/hooks/use-callback/parent-child" element={<UseCallbackParentChild />} />
             <Route path="/hooks/use-callback/event-handler" element={<UseCallbackEventHandler />} />
             <Route path="/hooks/use-callback/form-optimization" element={<UseCallbackFormOptimization />} />
+            <Route path="/hooks/use-callback/practice" element={<UseCallbackPractice />} />
+            <Route path="/hooks/use-callback/practice/event-handler" element={<UseCallbackEventHandler />} />
+            <Route path="/hooks/use-callback/practice/search-filter" element={<UseCallbackSearchFilter />} />
+            <Route path="/hooks/use-callback/practice/optimized-form" element={<UseCallbackOptimizedForm />} />
             <Route path="/hooks/custom-hooks" element={<CustomHooksIndex />} />
             <Route path="/hooks/custom-hooks/local-storage" element={<CustomHooksLocalStorage />} />
             <Route path="/hooks/custom-hooks/fetch" element={<CustomHooksFetch />} />
@@ -154,6 +158,10 @@ const App = () => (
             <Route path="/hooks/use-form/registration" element={<UseFormRegistration />} />
             <Route path="/hooks/use-form/login" element={<UseFormLogin />} />
             <Route path="/hooks/use-form/survey" element={<UseFormSurvey />} />
+            <Route path="/hooks/use-form/practice" element={<UseFormPractice />} />
+            <Route path="/hooks/use-form/practice/contact-form" element={<UseFormContactForm />} />
+            <Route path="/hooks/use-form/practice/dynamic-fields" element={<UseFormDynamicFields />} />
+            <Route path="/hooks/use-form/practice/multi-step-registration" element={<UseFormMultiStep />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
