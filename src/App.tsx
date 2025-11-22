@@ -60,18 +60,34 @@ import UseCallbackIndex from "./pages/hooks/use-callback/Index";
 import UseCallbackParentChild from "./pages/hooks/use-callback/ParentChild";
 import UseCallbackEventHandler from "./pages/hooks/use-callback/EventHandler";
 import UseCallbackFormOptimization from "./pages/hooks/use-callback/FormOptimization";
+import UseCallbackPractice from "./pages/hooks/use-callback/practice/Index";
+import UseCallbackEventHandlerPractice from "./pages/hooks/use-callback/practice/EventHandler";
+import UseCallbackSearchFilter from "./pages/hooks/use-callback/practice/SearchFilter";
+import UseCallbackOptimizedForm from "./pages/hooks/use-callback/practice/OptimizedForm";
 import CustomHooksIndex from "./pages/hooks/custom-hooks/Index";
 import CustomHooksLocalStorage from "./pages/hooks/custom-hooks/LocalStorage";
 import CustomHooksFetch from "./pages/hooks/custom-hooks/Fetch";
 import CustomHooksDebounce from "./pages/hooks/custom-hooks/Debounce";
+import CustomHooksPractice from "./pages/hooks/custom-hooks/practice/Index";
+import CustomHooksUseToggle from "./pages/hooks/custom-hooks/practice/UseToggle";
+import CustomHooksUseAsync from "./pages/hooks/custom-hooks/practice/UseAsync";
+import CustomHooksUseInfiniteScroll from "./pages/hooks/custom-hooks/practice/UseInfiniteScroll";
 import UseImperativeHandleIndex from "./pages/hooks/use-imperative-handle/Index";
 import UseImperativeHandleInputFocus from "./pages/hooks/use-imperative-handle/InputFocusControl";
 import UseImperativeHandleFormControl from "./pages/hooks/use-imperative-handle/FormControl";
 import UseImperativeHandleModalControl from "./pages/hooks/use-imperative-handle/ModalControl";
+import UseImperativeHandlePractice from "./pages/hooks/use-imperative-handle/practice/Index";
+import UseImperativeHandleCountdownTimer from "./pages/hooks/use-imperative-handle/practice/CountdownTimer";
+import UseImperativeHandleFormValidation from "./pages/hooks/use-imperative-handle/practice/FormValidation";
+import UseImperativeHandleMediaPlayer from "./pages/hooks/use-imperative-handle/practice/MediaPlayer";
 import UseFormIndex from "./pages/hooks/use-form/Index";
 import UseFormRegistration from "./pages/hooks/use-form/Registration";
 import UseFormLogin from "./pages/hooks/use-form/Login";
 import UseFormSurvey from "./pages/hooks/use-form/Survey";
+import UseFormPractice from "./pages/hooks/use-form/practice/Index";
+import UseFormContactForm from "./pages/hooks/use-form/practice/ContactForm";
+import UseFormDynamicFields from "./pages/hooks/use-form/practice/DynamicFields";
+import UseFormMultiStep from "./pages/hooks/use-form/practice/MultiStepRegistration";
 import AllComponents from "./pages/AllComponents";
 import NotFound from "./pages/NotFound";
 
@@ -143,17 +159,25 @@ const App = () => (
             <Route path="/hooks/use-callback/event-handler" element={<UseCallbackEventHandler />} />
             <Route path="/hooks/use-callback/form-optimization" element={<UseCallbackFormOptimization />} />
             <Route path="/hooks/use-callback/practice" element={<UseCallbackPractice />} />
-            <Route path="/hooks/use-callback/practice/event-handler" element={<UseCallbackEventHandler />} />
+            <Route path="/hooks/use-callback/practice/event-handler" element={<UseCallbackEventHandlerPractice />} />
             <Route path="/hooks/use-callback/practice/search-filter" element={<UseCallbackSearchFilter />} />
             <Route path="/hooks/use-callback/practice/optimized-form" element={<UseCallbackOptimizedForm />} />
             <Route path="/hooks/custom-hooks" element={<CustomHooksIndex />} />
             <Route path="/hooks/custom-hooks/local-storage" element={<CustomHooksLocalStorage />} />
             <Route path="/hooks/custom-hooks/fetch" element={<CustomHooksFetch />} />
             <Route path="/hooks/custom-hooks/debounce" element={<CustomHooksDebounce />} />
+            <Route path="/hooks/custom-hooks/practice" element={<CustomHooksPractice />} />
+            <Route path="/hooks/custom-hooks/practice/use-toggle" element={<CustomHooksUseToggle />} />
+            <Route path="/hooks/custom-hooks/practice/use-async" element={<CustomHooksUseAsync />} />
+            <Route path="/hooks/custom-hooks/practice/use-infinite-scroll" element={<CustomHooksUseInfiniteScroll />} />
             <Route path="/hooks/use-imperative-handle" element={<UseImperativeHandleIndex />} />
             <Route path="/hooks/use-imperative-handle/input-focus" element={<UseImperativeHandleInputFocus />} />
             <Route path="/hooks/use-imperative-handle/form-control" element={<UseImperativeHandleFormControl />} />
             <Route path="/hooks/use-imperative-handle/modal-control" element={<UseImperativeHandleModalControl />} />
+            <Route path="/hooks/use-imperative-handle/practice" element={<UseImperativeHandlePractice />} />
+            <Route path="/hooks/use-imperative-handle/practice/countdown-timer" element={<UseImperativeHandleCountdownTimer />} />
+            <Route path="/hooks/use-imperative-handle/practice/form-validation" element={<UseImperativeHandleFormValidation />} />
+            <Route path="/hooks/use-imperative-handle/practice/media-player" element={<UseImperativeHandleMediaPlayer />} />
             <Route path="/hooks/use-form" element={<UseFormIndex />} />
             <Route path="/hooks/use-form/registration" element={<UseFormRegistration />} />
             <Route path="/hooks/use-form/login" element={<UseFormLogin />} />
