@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import { Card } from '@/components/ui/card';
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 import { Component, MousePointer, FileText } from 'lucide-react';
 
 const examples = [
@@ -99,13 +100,22 @@ const UseCallbackIndex = () => {
         })}
       </div>
 
-      <Card className="p-6 bg-muted/50">
-        <h3 className="text-xl font-semibold mb-4">Learning Path</h3>
-        <ol className="space-y-2 list-decimal list-inside text-muted-foreground">
-          <li>Start with <strong className="text-foreground">Parent-Child Optimization</strong> - Understand the basics</li>
-          <li>Move to <strong className="text-foreground">Event Handler Stability</strong> - Real-world usage</li>
-          <li>Finish with <strong className="text-foreground">Form Optimization</strong> - Advanced patterns</li>
-        </ol>
+      <Card className="border-primary/20 bg-primary/5">
+        <CardHeader>
+          <CardTitle>🎯 Ready to Practice?</CardTitle>
+          <CardDescription>Test your optimization skills</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <Link to="/hooks/use-callback/practice">
+            <div className="flex items-center justify-between p-4 border-2 border-primary rounded-lg bg-background hover:bg-primary/5 transition-colors cursor-pointer">
+              <div>
+                <div className="font-medium">Practice Problems</div>
+                <div className="text-sm text-muted-foreground">Build performant components</div>
+              </div>
+              <Badge>3 Challenges</Badge>
+            </div>
+          </Link>
+        </CardContent>
       </Card>
     </div>
   );

@@ -128,34 +128,21 @@ const UseFormIndex = () => {
         </div>
       </div>
 
-      <Card>
+      <Card className="border-primary/20 bg-primary/5">
         <CardHeader>
-          <CardTitle>Learning Path</CardTitle>
+          <CardTitle>🎯 Ready to Practice?</CardTitle>
+          <CardDescription>Master form management</CardDescription>
         </CardHeader>
         <CardContent>
-          <ol className="space-y-3">
-            <li className="flex gap-3">
-              <span className="font-bold text-primary">1.</span>
+          <Link to="/hooks/use-form/practice">
+            <div className="flex items-center justify-between p-4 border-2 border-primary rounded-lg bg-background hover:bg-primary/5 transition-colors cursor-pointer">
               <div>
-                <strong>Start with Registration Form</strong>
-                <p className="text-sm text-muted-foreground">Learn basic form setup and validation</p>
+                <div className="font-medium">Practice Problems</div>
+                <div className="text-sm text-muted-foreground">Build validated forms</div>
               </div>
-            </li>
-            <li className="flex gap-3">
-              <span className="font-bold text-primary">2.</span>
-              <div>
-                <strong>Practice with Login Form</strong>
-                <p className="text-sm text-muted-foreground">Handle authentication patterns</p>
-              </div>
-            </li>
-            <li className="flex gap-3">
-              <span className="font-bold text-primary">3.</span>
-              <div>
-                <strong>Build a Survey Form</strong>
-                <p className="text-sm text-muted-foreground">Work with complex, multi-field forms</p>
-              </div>
-            </li>
-          </ol>
+              <Badge>3 Challenges</Badge>
+            </div>
+          </Link>
         </CardContent>
       </Card>
     </div>

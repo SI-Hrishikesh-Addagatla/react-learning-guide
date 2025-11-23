@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import { Card } from '@/components/ui/card';
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 import { Calculator, Filter, Zap } from 'lucide-react';
 
 const examples = [

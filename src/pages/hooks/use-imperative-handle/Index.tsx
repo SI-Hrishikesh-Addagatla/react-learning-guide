@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Code, FileText, MousePointer } from 'lucide-react';
-import { Card } from '@/components/ui/card';
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 
 const examples = [
   {
@@ -114,6 +115,28 @@ const UseImperativeHandleIndex = () => {
           ))}
         </div>
       </div>
+
+      <Card className="border-primary/20 bg-primary/5">
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2">
+            🎯 Ready to Practice?
+          </CardTitle>
+          <CardDescription>
+            Master imperative APIs with practical challenges
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <Link to="/hooks/use-imperative-handle/practice">
+            <div className="flex items-center justify-between p-4 border-2 border-primary rounded-lg bg-background hover:bg-primary/5 transition-colors cursor-pointer">
+              <div>
+                <div className="font-medium">Practice Problems</div>
+                <div className="text-sm text-muted-foreground">Build components with imperative controls</div>
+              </div>
+              <Badge>3 Challenges</Badge>
+            </div>
+          </Link>
+        </CardContent>
+      </Card>
 
       <Card className="p-6 bg-muted/50">
         <h3 className="text-lg font-semibold mb-3">💡 Learning Path</h3>
